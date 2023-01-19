@@ -1,5 +1,4 @@
 // ex03_11.cpp
-#include <fmt/format.h> // C++20: This will be #include <format> 
 #include <iostream>
 using namespace std;
 
@@ -7,7 +6,7 @@ int main() {
    int count{1};
 
    while (count <= 10) {
-      cout << fmt::format("{}\n", (count % 2 == 1 ? "****" : "++++++++"));
+      cout << (count % 2 == 1 ? "****" : "++++++++") << "\n";
       ++count;
    } 
 } 

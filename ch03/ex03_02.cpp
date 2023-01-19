@@ -1,5 +1,4 @@
 // ex03_02.cpp
-#include <fmt/format.h> // C++20: This will be #include <format> 
 #include <iostream>
 using namespace std;
 
@@ -9,13 +8,14 @@ int main() {
 
    while (x <= 10) {
       int y = x * x;
-      cout << fmt::format("{}\n", y);
+      cout << y << "\n";
       total += y;
       ++x;
    } 
 
-   cout << fmt::format("Total is {}\n", total);
+   cout << "Total is " << total << "\n";
 } 
+
 
 
  /*************************************************************************

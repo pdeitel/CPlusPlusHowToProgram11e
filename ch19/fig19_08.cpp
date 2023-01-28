@@ -1,25 +1,25 @@
-// fig04_03.cpp
-// Summing integers with the for statement; introducing text formatting.
-#include <format> 
+// fig19_08.cpp 
+// width member function of classes istream and ostream.
 #include <iostream>
-using namespace std;
 
 int main() {
-   int total{0};
+   int widthValue{4};
+   char sentence[10]{};
 
-   // total even integers from 2 through 20
-   for (int number{2}; number <= 20; number += 2) {
-      total += number;                             
-   }
+   std::cout << "Enter a sentence:\n";
+   std::cin.width(5); // input up to 4 characters from sentence
 
-   cout << format("Sum is {}\n", total);
+   // set field width, then display characters based on that width 
+   while (std::cin >> sentence) {
+      std::cout.width(widthValue++);
+      std::cout << sentence << "\n";
+      std::cin.width(5); // input up to 4 more characters from sentence
+   } 
 } 
 
 
-
-
 /**************************************************************************
- * (C) Copyright 1992-2023 by Deitel & Associates, Inc. and               *
+ * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
  *                                                                        *
  * DISCLAIMER: The authors and publisher of this book have used their     *
@@ -31,4 +31,4 @@ int main() {
  * and publisher shall not be liable in any event for incidental or       *
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+ **************************************************************************/

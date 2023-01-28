@@ -1,25 +1,23 @@
-// fig04_03.cpp
-// Summing integers with the for statement; introducing text formatting.
-#include <format> 
+// fig19_04.cpp 
+// Inputting characters using cin member function getline.
+#include <format>
 #include <iostream>
-using namespace std;
 
 int main() {
-   int total{0};
+   const int size{80};
+   char buffer[size]{}; // create array of 80 characters
 
-   // total even integers from 2 through 20
-   for (int number{2}; number <= 20; number += 2) {
-      total += number;                             
-   }
+   // input characters in buffer via cin function getline
+   std::cout << "Enter a sentence:\n";
+   std::cin.getline(buffer, size);
 
-   cout << format("Sum is {}\n", total);
+   // display buffer contents
+   std::cout << std::format("\nYou entered:\n{}\n", buffer);
 } 
 
 
-
-
 /**************************************************************************
- * (C) Copyright 1992-2023 by Deitel & Associates, Inc. and               *
+ * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
  *                                                                        *
  * DISCLAIMER: The authors and publisher of this book have used their     *
@@ -31,4 +29,4 @@ int main() {
  * and publisher shall not be liable in any event for incidental or       *
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+ **************************************************************************/

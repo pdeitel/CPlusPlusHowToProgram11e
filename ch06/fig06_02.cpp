@@ -22,7 +22,7 @@ int main() {
       std::cout << fmt::format("{}  ", values.at(i));
    }
 
-   std::cout << "\n";
+   std::cout << '\n';
 }
 
 

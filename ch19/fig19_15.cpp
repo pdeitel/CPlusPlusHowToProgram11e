@@ -1,25 +1,28 @@
-// fig04_03.cpp
-// Summing integers with the for statement; introducing text formatting.
-#include <format> 
+// fig19_15.cpp 
+// Floating-point values displayed in system default,
+// scientific and fixed formats.
 #include <iostream>
-using namespace std;
 
 int main() {
-   int total{0};
+   double x{0.001234567};
+   double y{1.946e9};
 
-   // total even integers from 2 through 20
-   for (int number{2}; number <= 20; number += 2) {
-      total += number;                             
-   }
+   // display x and y in default format
+   std::cout << "Displayed in default format:\n" << x << '\t' << y;
 
-   cout << format("Sum is {}\n", total);
+   // display x and y in scientific format
+   std::cout << "\n\nDisplayed in scientific format:\n"
+      << std::scientific << x << '\t' << y;
+
+   // display x and y in fixed format
+   std::cout << "\n\nDisplayed in fixed format:\n"
+      << std::fixed << x << '\t' << y << "\n";
 } 
 
 
 
-
 /**************************************************************************
- * (C) Copyright 1992-2023 by Deitel & Associates, Inc. and               *
+ * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
  *                                                                        *
  * DISCLAIMER: The authors and publisher of this book have used their     *
@@ -31,4 +34,4 @@ int main() {
  * and publisher shall not be liable in any event for incidental or       *
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+ **************************************************************************/

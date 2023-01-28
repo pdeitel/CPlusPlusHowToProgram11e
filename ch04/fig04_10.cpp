@@ -1,28 +1,28 @@
 // fig04_10.cpp
 // Logical operators.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 using namespace std;
 
 int main() {
    // create truth table for && (logical AND) operator
    cout << "Logical AND (&&)\n"
-      << fmt::format("false && false: {}\n", false && false)
-      << fmt::format("false && true: {}\n", false && true)
-      << fmt::format("true && false: {}\n", true && false)
-      << fmt::format("true && true: {}\n\n", true && true);
+      << format("false && false: {}\n", false && false)
+      << format("false && true: {}\n", false && true)
+      << format("true && false: {}\n", true && false)
+      << format("true && true: {}\n\n", true && true);
 
    // create truth table for || (logical OR) operator
    cout << "Logical OR (||)\n"
-      << fmt::format("false || false: {}\n", false || false)
-      << fmt::format("false || true: {}\n", false || true)
-      << fmt::format("true || false: {}\n", true || false)
-      << fmt::format("true || true: {}\n\n", true || true);
+      << format("false || false: {}\n", false || false)
+      << format("false || true: {}\n", false || true)
+      << format("true || false: {}\n", true || false)
+      << format("true || true: {}\n\n", true || true);
 
    // create truth table for ! (logical negation) operator
    cout << "Logical negation (!)\n"
-      << fmt::format("!false: {}\n", !false)
-      << fmt::format("!true: {}\n", !true);
+      << format("!false: {}\n", !false)
+      << format("!true: {}\n", !true);
 } 
 
 

@@ -1,25 +1,28 @@
-// fig04_03.cpp
-// Summing integers with the for statement; introducing text formatting.
-#include <format> 
+// fig19_09.cpp
+// Creating and testing user-defined, nonparameterized 
+// stream manipulators.
 #include <iostream>
-using namespace std;
+
+// bell manipulator (using escape sequence \a)
+std::ostream& bell(std::ostream& output) {             
+   return output << '\a'; // issue system beep
+}
+
+// tab manipulator (using escape sequence \t)
+std::ostream& tab(std::ostream& output) {            
+   return output << '\t'; // issue tab 
+}
 
 int main() {
-   int total{0};
+   // use tab and bell manipulators
+   std::cout << "Testing the tab manipulator:\n"
+      << 'a' << tab << 'b' << tab << 'c' << '\n';
 
-   // total even integers from 2 through 20
-   for (int number{2}; number <= 20; number += 2) {
-      total += number;                             
-   }
-
-   cout << format("Sum is {}\n", total);
+   std::cout << "Testing the bell manipulator\n" << bell;
 } 
 
-
-
-
 /**************************************************************************
- * (C) Copyright 1992-2023 by Deitel & Associates, Inc. and               *
+ * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
  *                                                                        *
  * DISCLAIMER: The authors and publisher of this book have used their     *
@@ -31,4 +34,4 @@ int main() {
  * and publisher shall not be liable in any event for incidental or       *
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+ **************************************************************************/

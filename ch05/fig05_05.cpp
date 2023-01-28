@@ -1,6 +1,6 @@
 // fig05_05.cpp
 // Craps simulation.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include <random> 
 using namespace std;
@@ -27,7 +27,7 @@ int main() {
          break;
       default: // did not win or lose, so remember point
          myPoint = sumOfDice; // remember the point
-         cout << fmt::format("Point is {}\n", myPoint);
+         cout << format("Point is {}\n", myPoint);
          break; // optional (but recommended) at end of switch  
    }
 
@@ -63,7 +63,7 @@ int rollDice() {
    const int sum{die1 + die2}; // compute sum of die values
 
    // display results of this roll
-   cout << fmt::format("Player rolled {} + {} = {}\n", die1, die2, sum);
+   cout << format("Player rolled {} + {} = {}\n", die1, die2, sum);
 
    return sum;
 }

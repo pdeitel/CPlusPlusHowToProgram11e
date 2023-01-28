@@ -1,6 +1,6 @@
 // fig05_03.cpp
 // Rolling a six-sided die randomly 60,000,000 times.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include <random> 
 using namespace std;
@@ -45,13 +45,13 @@ int main() {
       } 
    } 
 
-   cout << fmt::format("{:>4}{:>13}\n", "Face", "Frequency"); // headers
-   cout << fmt::format("{:>4d}{:>13d}\n", 1, frequency1)
-      << fmt::format("{:>4d}{:>13d}\n", 2, frequency2)
-      << fmt::format("{:>4d}{:>13d}\n", 3, frequency3)
-      << fmt::format("{:>4d}{:>13d}\n", 4, frequency4)
-      << fmt::format("{:>4d}{:>13d}\n", 5, frequency5)
-      << fmt::format("{:>4d}{:>13d}\n", 6, frequency6);
+   cout << format("{:>4}{:>13}\n", "Face", "Frequency"); // headers
+   cout << format("{:>4d}{:>13d}\n", 1, frequency1)
+      << format("{:>4d}{:>13d}\n", 2, frequency2)
+      << format("{:>4d}{:>13d}\n", 3, frequency3)
+      << format("{:>4d}{:>13d}\n", 4, frequency4)
+      << format("{:>4d}{:>13d}\n", 5, frequency5)
+      << format("{:>4d}{:>13d}\n", 6, frequency6);
 } 
 
 

@@ -92,7 +92,7 @@ int main() {
 // output vector contents
 void outputVector(const std::vector<int>& items) {
    for (const int& item : items) {
-      std::cout << item << " ";
+      std::cout << item << ' ';
    }
 
    std::cout << '\n';

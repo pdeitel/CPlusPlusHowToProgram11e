@@ -1,25 +1,35 @@
-// fig04_03.cpp
-// Summing integers with the for statement; introducing text formatting.
-#include <format> 
+// fig19_17.cpp
+// Stream manipulators boolalpha and noboolalpha.
 #include <iostream>
-using namespace std;
 
 int main() {
-   int total{0};
+   bool booleanValue{true};
 
-   // total even integers from 2 through 20
-   for (int number{2}; number <= 20; number += 2) {
-      total += number;                             
-   }
+   // display default true booleanValue
+   std::cout << "booleanValue is " << booleanValue;
 
-   cout << format("Sum is {}\n", total);
+   // display booleanValue after using boolalpha
+   std::cout << "\nbooleanValue (after using boolalpha) is "
+      << std::boolalpha << booleanValue;
+
+   std::cout << "\n\nswitch booleanValue and use noboolalpha\n";
+   booleanValue = false; // change booleanValue
+   std::cout << std::noboolalpha; // use noboolalpha
+
+   // display default false booleanValue after using noboolalpha
+   std::cout << "\nbooleanValue is " << booleanValue;
+
+   // display booleanValue after using boolalpha again
+   std::cout << "\nbooleanValue (after using boolalpha) is "
+      << std::boolalpha << booleanValue << "\n";
 } 
 
 
 
 
+
 /**************************************************************************
- * (C) Copyright 1992-2023 by Deitel & Associates, Inc. and               *
+ * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
  *                                                                        *
  * DISCLAIMER: The authors and publisher of this book have used their     *
@@ -31,4 +41,4 @@ int main() {
  * and publisher shall not be liable in any event for incidental or       *
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+ **************************************************************************/

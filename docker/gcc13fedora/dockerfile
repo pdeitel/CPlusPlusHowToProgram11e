@@ -1,0 +1,5 @@
+FROM fedora:37
+RUN dnf -y install 'dnf-command(copr)'
+RUN dnf -y copr enable jwakely/gcc-latest
+RUN dnf -y install gcc-latest
+RUN /opt/gcc-latest/bin/g++ --version

@@ -1,25 +1,23 @@
-// fig04_03.cpp
-// Summing integers with the for statement; introducing text formatting.
-#include <format> 
+// fig19_05.cpp 
+// Unformatted I/O using read, gcount and write.
 #include <iostream>
-using namespace std;
 
 int main() {
-   int total{0};
+   char buffer[80]{}; // create array of 80 characters
 
-   // total even integers from 2 through 20
-   for (int number{2}; number <= 20; number += 2) {
-      total += number;                             
-   }
+   // use function read to input characters into buffer
+   std::cout << "Enter a sentence:\n";
+   std::cin.read(buffer, 20);
 
-   cout << format("Sum is {}\n", total);
+   // use functions write and gcount to display buffer characters
+   std::cout << "\nThe sentence entered was:\n";
+   std::cout.write(buffer, std::cin.gcount());
+   std::cout << '\n';
 } 
 
 
-
-
 /**************************************************************************
- * (C) Copyright 1992-2023 by Deitel & Associates, Inc. and               *
+ * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
  *                                                                        *
  * DISCLAIMER: The authors and publisher of this book have used their     *
@@ -31,4 +29,4 @@ int main() {
  * and publisher shall not be liable in any event for incidental or       *
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+ **************************************************************************/

@@ -1,25 +1,22 @@
-// fig04_03.cpp
-// Summing integers with the for statement; introducing text formatting.
-#include <format> 
+// fig19_16.cpp 
+// Stream manipulator uppercase.
 #include <iostream>
-using namespace std;
 
 int main() {
-   int total{0};
+   std::cout << "Printing uppercase letters in scientific\n"
+      << "notation exponents and hexadecimal values:\n";
 
-   // total even integers from 2 through 20
-   for (int number{2}; number <= 20; number += 2) {
-      total += number;                             
-   }
-
-   cout << format("Sum is {}\n", total);
+   // use std::uppercase to display uppercase letters; use std::hex and 
+   // std::showbase to display hexadecimal value and its base
+   std::cout << std::uppercase << 4.345e10 << "\n" 
+      << std::hex << std::showbase << 123456789 << "\n";
 } 
 
 
 
 
 /**************************************************************************
- * (C) Copyright 1992-2023 by Deitel & Associates, Inc. and               *
+ * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
  *                                                                        *
  * DISCLAIMER: The authors and publisher of this book have used their     *
@@ -31,4 +28,4 @@ int main() {
  * and publisher shall not be liable in any event for incidental or       *
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+ **************************************************************************/

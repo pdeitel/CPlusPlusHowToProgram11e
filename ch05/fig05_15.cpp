@@ -1,6 +1,6 @@
 // fig05_15.cpp
 // Recursive function fibonacci.
-#include <fmt/format.h> // C++20: This will be #include <format> 
+#include <format>  
 #include <iostream>
 using namespace std;
 
@@ -9,14 +9,14 @@ long fibonacci(long number); // function prototype
 int main() {
    // calculate the fibonacci values of 0 through 10
    for (int counter{0}; counter <= 10; ++counter) {
-      cout << fmt::format("fibonacci({}) = {}\n", 
+      cout << format("fibonacci({}) = {}\n", 
          counter, fibonacci(counter));
    }
 
    // display higher fibonacci values
-   cout << fmt::format("\nfibonacci(20) = {}\n", fibonacci(20))
-      << fmt::format("fibonacci(30) = {}\n", fibonacci(30))
-      << fmt::format("fibonacci(35) = {}\n", fibonacci(35));
+   cout << format("\nfibonacci(20) = {}\n", fibonacci(20))
+      << format("fibonacci(30) = {}\n", fibonacci(30))
+      << format("fibonacci(35) = {}\n", fibonacci(35));
 } 
 
 // recursive function fibonacci                            

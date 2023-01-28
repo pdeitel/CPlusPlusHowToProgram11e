@@ -1,7 +1,7 @@
 // fig05_01.cpp
 // maximum function with a function prototype.
 #include <iostream>
-#include <iomanip>
+
 using namespace std;
 
 int maximum(int x, int y, int z); // function prototype 

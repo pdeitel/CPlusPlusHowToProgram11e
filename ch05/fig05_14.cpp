@@ -1,7 +1,7 @@
 // fig05_14.cpp
 // Recursive function factorial.
 #include <boost/multiprecision/cpp_int.hpp>
-#include <fmt/format.h> // C++20: This will be #include <format> 
+#include <format>
 #include <iostream>
 using boost::multiprecision::cpp_int;
 using namespace std;
@@ -11,14 +11,14 @@ cpp_int factorial(int number); // function prototype
 int main() {
    // calculate the factorials of 0 through 10
    for (int counter{0}; counter <= 10; ++counter) {
-      cout << fmt::format("{:>2}! = ", counter) << factorial(counter) 
+      cout << format("{:>2}! = ", counter) << factorial(counter) 
          << '\n';
    } 
 
    // display factorials of 20, 30 and 40
-   cout << fmt::format("\n{:>2}! = ", 20) << factorial(20) 
-      << fmt::format("\n{:>2}! = ", 30) << factorial(30) 
-      << fmt::format("\n{:>2}! = ", 40) << factorial(40) << '\n';
+   cout << format("\n{:>2}! = ", 20) << factorial(20) 
+      << format("\n{:>2}! = ", 30) << factorial(30) 
+      << format("\n{:>2}! = ", 40) << factorial(40) << '\n';
 } 
 
 // recursive definition of function factorial    

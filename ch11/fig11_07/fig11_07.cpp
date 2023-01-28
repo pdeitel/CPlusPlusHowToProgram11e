@@ -1,29 +1,26 @@
-// fig04_07.cpp
-// if statements with initializers.
-#include <format> 
+// fig11_07.cpp
+// Single-argument constructors and implicit conversions.
 #include <iostream>
+#include "MyArray.h"
 using namespace std;
 
-int main() {
-   if (int value{7}; value == 7) {
-      cout << format("value is {}\n", value);
-   }
-   else {
-      cout << format("value is not 7; it is {}\n", value);
-   }
+void outputArray(const MyArray&); // prototype
 
-   if (int value{13}; value == 9) {
-      cout << format("value is {}\n", value);
-   }
-   else {
-      cout << format("value is not 9; it is {}\n", value);
-   }
+int main() {
+   MyArray ints1(7); // 7-element MyArray
+   outputArray(ints1); // output MyArray ints1
+   outputArray(3); // convert 3 to a MyArray and output the contents
+}
+
+// print MyArray contents
+void outputArray(const MyArray& arrayToOutput) {
+   std::cout << "The MyArray received has " << arrayToOutput.size()
+      << " elements. The contents are: " << arrayToOutput << "\n";
 }
 
 
-
 /**************************************************************************
- * (C) Copyright 1992-2023 by Deitel & Associates, Inc. and               *
+ * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
  *                                                                        *
  * DISCLAIMER: The authors and publisher of this book have used their     *

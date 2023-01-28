@@ -8,7 +8,6 @@
 #include <string_view>
 #include <cctype>
 #include <stdexcept>
-#include <gsl/gsl>
 
 class Cipher {
 public:
@@ -21,7 +20,7 @@ public:
       // fill alphabet with A-Z
       for (size_t i{0}; i < m_size; ++i) {
          // convert 'A' + i to a char and place in alphabet
-         alphabet.at(i) = gsl::narrow_cast<char>('A' + i);
+         alphabet.at(i) = static_cast<char>('A' + i);
       }
 
       // copy alphabet into row 0 of the Vigenère square
@@ -56,7 +55,7 @@ public:
 
          // convert currentChar to uppercase; for uppercase 
          // letters and non-letters the character remains the same
-         const char currentChar{gsl::narrow_cast<const char>(
+         const char currentChar{static_cast<const char>(
             std::toupper(plaintext.at(i)))};
 
          // if the current character is a letter, encrypt it  
@@ -108,7 +107,7 @@ public:
 
          // convert currentChar to uppercase; for uppercase 
          // letters and non-letters the character remains the same
-         const char currentChar{gsl::narrow_cast<const char>(
+         const char currentChar{static_cast<const char>(
             std::toupper(ciphertext.at(i)))};
 
          // if current is a letter decrypt it
@@ -135,7 +134,7 @@ public:
 
             // determine original character  
             const char originalChar{
-               gsl::narrow_cast<const char>('A' + column)};
+               static_cast<const char>('A' + column)};
 
             // add originalChar to plaintext in the correct case
             plaintext +=

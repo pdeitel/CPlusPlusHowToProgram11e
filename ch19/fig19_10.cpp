@@ -1,25 +1,25 @@
-// fig04_03.cpp
-// Summing integers with the for statement; introducing text formatting.
-#include <format> 
+// fig19_10.cpp 
+// Displaying trailing zeros and decimal points in floating-point values.
 #include <iostream>
-using namespace std;
 
 int main() {
-   int total{0};
+   // display double values with default stream format
+   std::cout << "Before using showpoint"
+      << "\n9.9900 prints as: " << 9.9900 
+      << "\n9.9000 prints as: " << 9.9000 
+      << "\n9.0000 prints as: " << 9.0000;
 
-   // total even integers from 2 through 20
-   for (int number{2}; number <= 20; number += 2) {
-      total += number;                             
-   }
-
-   cout << format("Sum is {}\n", total);
+   // display double value after showpoint
+   std::cout << std::showpoint
+      << "\n\nAfter using showpoint" 
+      << "\n9.9900 prints as: " << 9.9900 
+      << "\n9.9000 prints as: " << 9.9000 
+      << "\n9.0000 prints as: " << 9.0000 << '\n';
 } 
 
 
-
-
 /**************************************************************************
- * (C) Copyright 1992-2023 by Deitel & Associates, Inc. and               *
+ * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
  *                                                                        *
  * DISCLAIMER: The authors and publisher of this book have used their     *
@@ -31,4 +31,4 @@ int main() {
  * and publisher shall not be liable in any event for incidental or       *
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+ **************************************************************************/

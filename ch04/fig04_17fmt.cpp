@@ -1,38 +1,30 @@
 // fig04_17.cpp
-// Compound-interest example with boost::multiprecision. 
+// Compound-interest example with boost::multiprecision::cpp_dec_float_50. 
 #include <boost/multiprecision/cpp_dec_float.hpp>
 #include <fmt/format.h> // in C++20, this will be #include <format>
 #include <iostream>
-#include "decimalformatter.h" 
+#include "decimalformatter_fmt.h" 
 
 using namespace std;
 using boost::multiprecision::cpp_dec_float_50;
 
 int main() {
-   // fixed-point formatting diplays unformatted floating-point and  
-   // cpp_dec_float_50 values with six digits of precision by default
-   cout << fixed;
-
-   cpp_dec_float_50 principal{"1000.00"}; // initial amount
-   cpp_dec_float_50 rate{"0.05"}; // interest rate
-
+   cpp_dec_float_50 principal{1000}; // $1000 initial principal
+   cpp_dec_float_50 rate{"0.05"}; // 5% interest rate
+ 
    cout << fmt::format("Initial principal: {:>7}\n", principal)
       << fmt::format("    Interest rate: {:>7}\n\n", rate);
 
    // display headers
-   cout << fmt::format("{}{:>20}   {}\n",
-      "Year", "Amount on deposit", "Unrounded Amount");
+   cout << fmt::format("{}{:>20}\n", "Year", "Amount on deposit");
 
-   // calculate amount on deposit for each of ten years
+   // calculate amount on deposit for each of 10 years
    for (int year{1}; year <= 10; ++year) {
       cpp_dec_float_50 amount{principal * pow(1 + rate, year)};
-      cout << fmt::format("{:>4}{:>20}   ", year, amount);
-
-      // use boost's cpp_dec_float_50 output (<<) operator to  
-      // display amount with C++'s default precision (six digits)
-      cout << amount << '\n';
+      cout << fmt::format("{:>4}{:>20}\n", year, amount);
    }
 }
+
 
 /**************************************************************************
  * (C) Copyright 1992-2023 by Deitel & Associates, Inc. and               *

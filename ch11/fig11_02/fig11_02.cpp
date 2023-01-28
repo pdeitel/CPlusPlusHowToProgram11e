@@ -1,29 +1,43 @@
-// fig04_07.cpp
-// if statements with initializers.
-#include <format> 
+// fig11_02.cpp
+// Demonstrating unique_ptr.
+#include <format>
 #include <iostream>
-using namespace std;
+#include <memory>
 
+class Integer {
+public:
+   // constructor
+   Integer(int i) : value{i} {
+      std::cout << std::format("Constructor for Integer {}\n", value);
+   }
+
+   // destructor
+   ~Integer() {
+      std::cout << std::format("Destructor for Integer {}\n", value);
+   }
+
+   int getValue() const { return value; } // return Integer value
+private:
+   int value{0};
+};
+
+// use unique_ptr to manipulate Integer object
 int main() {
-   if (int value{7}; value == 7) {
-      cout << format("value is {}\n", value);
-   }
-   else {
-      cout << format("value is not 7; it is {}\n", value);
-   }
+   std::cout << "Creating a unique_ptr that points to an Integer\n";
 
-   if (int value{13}; value == 9) {
-      cout << format("value is {}\n", value);
-   }
-   else {
-      cout << format("value is not 9; it is {}\n", value);
-   }
+   // create a unique_ptr object and "aim" it at a new Integer object 
+   auto ptr{std::make_unique<Integer>(7)};
+
+   // use unique_ptr to call an Integer member function
+   std::cout << std::format("Integer value: {}\n\nMain ends\n",
+      ptr->getValue());
 }
 
 
 
+
 /**************************************************************************
- * (C) Copyright 1992-2023 by Deitel & Associates, Inc. and               *
+ * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
  *                                                                        *
  * DISCLAIMER: The authors and publisher of this book have used their     *

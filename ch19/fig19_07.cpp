@@ -1,25 +1,35 @@
-// fig04_03.cpp
-// Summing integers with the for statement; introducing text formatting.
-#include <format> 
+// fig19_07.cpp 
+// Controlling precision of floating-point values.
+#include <iomanip>      
 #include <iostream>
-using namespace std;
+#include <cmath> 
 
 int main() {
-   int total{0};
+   double root2{std::sqrt(2.0)}; // calculate square root of 2
 
-   // total even integers from 2 through 20
-   for (int number{2}; number <= 20; number += 2) {
-      total += number;                             
-   }
+   std::cout << "Square root of 2 with precisions 0-9.\n"
+      << "Precision set by ostream member function precision:\n";
+   std::cout << std::fixed; // use fixed-point notation
 
-   cout << format("Sum is {}\n", total);
+   // display square root using ostream function precision
+   for (int places{0}; places <= 9; ++places) {
+      std::cout.precision(places);
+      std::cout << root2 << "\n";
+   } 
+
+   std::cout << "\nPrecision set by stream manipulator setprecision:\n"; 
+
+   // set precision for each digit, then display square root
+   for (int places{0}; places <= 9; ++places) {
+      std::cout << std::setprecision(places) << root2 << "\n";
+   } 
 } 
 
 
 
 
 /**************************************************************************
- * (C) Copyright 1992-2023 by Deitel & Associates, Inc. and               *
+ * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
  *                                                                        *
  * DISCLAIMER: The authors and publisher of this book have used their     *
@@ -31,4 +41,4 @@ int main() {
  * and publisher shall not be liable in any event for incidental or       *
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+ **************************************************************************/

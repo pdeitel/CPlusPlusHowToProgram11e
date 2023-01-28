@@ -1,25 +1,22 @@
-// fig04_03.cpp
-// Summing integers with the for statement; introducing text formatting.
-#include <format> 
+// fig19_21.cpp 
+// C++20 text-formatting with field widths and alignment.
+#include <format>
 #include <iostream>
-using namespace std;
 
 int main() {
-   int total{0};
+   std::cout << "Default alignment with field width 10:\n"
+      << std::format("[{:10d}]\n[{:10f}]\n[{:10}]\n\n", 27, 3.5, "hello");
+   
+   std::cout << "Specifying left or right alignment in a field:\n"
+      << std::format("[{:<15d}]\n[{:<15f}]\n[{:>15}]\n\n", 
+            27, 3.5, "hello");
 
-   // total even integers from 2 through 20
-   for (int number{2}; number <= 20; number += 2) {
-      total += number;                             
-   }
-
-   cout << format("Sum is {}\n", total);
-} 
-
-
-
+   std::cout << "Centering text in a field:\n"
+      << std::format("[{:^7d}]\n[{:^7.1f}]\n[{:^7}]\n", 27, 3.5, "hello");
+}
 
 /**************************************************************************
- * (C) Copyright 1992-2023 by Deitel & Associates, Inc. and               *
+ * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
  *                                                                        *
  * DISCLAIMER: The authors and publisher of this book have used their     *
@@ -31,4 +28,4 @@ int main() {
  * and publisher shall not be liable in any event for incidental or       *
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+ **************************************************************************/

@@ -1,6 +1,6 @@
 // fig06_03.cpp
 // Using range-based for.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include <array>
 
@@ -10,7 +10,7 @@ int main() {
    // display items before modification
    std::cout << "items before modification: ";
    for (const int& item : items) { // item is a reference to a const int
-      std::cout << fmt::format("{} ", item); 
+      std::cout << std::format("{} ", item); 
    }                       
  
    // multiply the elements of items by 2
@@ -21,14 +21,14 @@ int main() {
    // display items after modification
    std::cout << "\nitems after modification: ";
    for (const int& item : items) {
-      std::cout << fmt::format("{} ", item);
+      std::cout << std::format("{} ", item);
    }
 
    // sum elements of items using range-based for with initialization
    std::cout << "\n\ncalculating a running total of items' values:\n";
    for (int runningTotal{0}; const int& item : items) {
       runningTotal += item;
-      std::cout << fmt::format("item: {}; running total: {}\n",
+      std::cout << std::format("item: {}; running total: {}\n",
          item, runningTotal);
    }
 }

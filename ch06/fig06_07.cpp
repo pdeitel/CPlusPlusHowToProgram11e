@@ -1,6 +1,6 @@
 // fig06_07.cpp
 // Die-rolling program using an array instead of switch.
-#include <fmt/format.h> // C++20: This will be #include <format>
+#include <format>
 #include <iostream>
 #include <array>
 #include <random>
@@ -19,11 +19,11 @@ int main() {
       ++frequency.at(randomDie(engine));
    }
 
-   std::cout << fmt::format("{}{:>13}\n", "Face", "Frequency");
+   std::cout << std::format("{}{:>13}\n", "Face", "Frequency");
 
    // output each array element's value
    for (size_t face{1}; face < frequency.size(); ++face) {
-      std::cout << fmt::format("{:>4}{:>13}\n", face, frequency.at(face));
+      std::cout << std::format("{:>4}{:>13}\n", face, frequency.at(face));
    }
 }
 

@@ -1,6 +1,6 @@
 // Fig. 9.1: AccountTest.cpp
 // Creating and manipulating an Account object.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include <string>
 #include "Account.h"
@@ -9,7 +9,7 @@ int main() {
    Account myAccount{}; // create Account object myAccount
 
    // show that the initial value of myAccount's name is the empty string
-   std::cout << fmt::format("Initial account name: {}\n",
+   std::cout << std::format("Initial account name: {}\n",
       myAccount.getName());
 
    // prompt for and read the name
@@ -19,7 +19,7 @@ int main() {
    myAccount.setName(name); // put name in the myAccount object
 
    // display the name stored in object myAccount
-   std::cout << fmt::format("Updated account name: {}\n",
+   std::cout << std::format("Updated account name: {}\n",
       myAccount.getName());
 }
 

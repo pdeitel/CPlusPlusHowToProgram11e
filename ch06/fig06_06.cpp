@@ -1,6 +1,6 @@
 // fig06_06.cpp
 // Printing a student grade distribution as a primitive bar chart.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include <array>
 
@@ -13,11 +13,11 @@ int main() {
    for (int i{0}; const int& frequency : frequencies) {
       // output bar labels ("00-09:", ..., "90-99:", "100:")
       if (i < 10) {
-         std::cout << fmt::format("{:02d}-{:02d}: ",
+         std::cout << std::format("{:02d}-{:02d}: ",
             i * 10, (i * 10) + 9);
       }
       else {
-         std::cout << fmt::format("{:>5d}: ", 100);
+         std::cout << std::format("{:>5d}: ", 100);
       }
 
       ++i;

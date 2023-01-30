@@ -1,6 +1,6 @@
 // fig07_02.cpp
 // Pass-by-value used to cube a variable's value.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 
 int cubeByValue(int n); // prototype 
@@ -8,9 +8,9 @@ int cubeByValue(int n); // prototype
 int main() {
    int number{5};
 
-   std::cout << fmt::format("Original value of number is {}\n", number);
+   std::cout << std::format("Original value of number is {}\n", number);
    number = cubeByValue(number); // pass number by value to cubeByValue
-   std::cout << fmt::format("New value of number is {}\n", number);
+   std::cout << std::format("New value of number is {}\n", number);
 }
 
 // calculate and return cube of integer argument                

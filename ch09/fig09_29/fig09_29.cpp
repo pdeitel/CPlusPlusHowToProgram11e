@@ -1,6 +1,6 @@
 // fig09_29.cpp  
 // Using the this pointer to refer to object members.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 
 class Test {
@@ -18,15 +18,15 @@ Test::Test(int value) : m_x{value} {} // initialize x to value
 // the parentheses around *this are required due to precedence
 void Test::print() const {
    // implicitly use the this pointer to access the member x
-   std::cout << fmt::format("        m_x = {}\n", m_x);
+   std::cout << std::format("        m_x = {}\n", m_x);
 
    // explicitly use the this pointer and the arrow operator
    // to access the member x                                
-   std::cout << fmt::format("  this->m_x = {}\n", this->m_x);
+   std::cout << std::format("  this->m_x = {}\n", this->m_x);
 
    // explicitly use the dereferenced this pointer and
    // the dot operator to access the member x         
-   std::cout << fmt::format("(*this).m_x = {}\n", (*this).m_x);
+   std::cout << std::format("(*this).m_x = {}\n", (*this).m_x);
 }
 
 int main() {

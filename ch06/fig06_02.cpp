@@ -1,6 +1,6 @@
 // fig06_02.cpp
 // Initializing an array in a declaration.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include <array>
 
@@ -9,7 +9,7 @@ int main() {
 
    // output each array element's value
    for (size_t i{0}; i < values.size(); ++i) {
-      std::cout << fmt::format("{}  ", values.at(i));
+      std::cout << std::format("{}  ", values.at(i));
    }
 
    std::cout << "\n\n";
@@ -19,7 +19,7 @@ int main() {
 
    // output each array element's value
    for (size_t i{0}; i < values.size(); ++i) {
-      std::cout << fmt::format("{}  ", values.at(i));
+      std::cout << std::format("{}  ", values.at(i));
    }
 
    std::cout << '\n';

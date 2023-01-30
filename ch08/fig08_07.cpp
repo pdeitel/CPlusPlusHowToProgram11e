@@ -1,6 +1,6 @@
 // fig08_07.cpp
 // Demonstrating string member functions erase and replace.
-#include <fmt/format.h> 
+#include <format> 
 #include <iostream>
 #include <string>
 
@@ -12,10 +12,10 @@ int main() {
       "\nany right subtree are greater"
       "\nthan the value in the parent node"};
 
-   std::cout << fmt::format("Original string:\n{}\n\n", string1);
+   std::cout << std::format("Original string:\n{}\n\n", string1);
 
    string1.erase(62); // remove from index 62 through end of string1
-   std::cout << fmt::format("string1 after erase:\n{}\n\n", string1);
+   std::cout << std::format("string1 after erase:\n{}\n\n", string1);
 
    size_t position{string1.find(" ")}; // find first space
 
@@ -25,7 +25,7 @@ int main() {
       position = string1.find(" ", position + 1);
    }
 
-   std::cout << fmt::format("After first replacement:\n{}\n\n", string1);
+   std::cout << std::format("After first replacement:\n{}\n\n", string1);
 
    position = string1.find("."); // find first period
 
@@ -36,7 +36,7 @@ int main() {
       position = string1.find(".", position + 2);
    }
 
-   std::cout << fmt::format("After second replacement:\n{}\n", string1);
+   std::cout << std::format("After second replacement:\n{}\n", string1);
 }
 
 

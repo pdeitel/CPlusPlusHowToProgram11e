@@ -1,6 +1,6 @@
 // fig09_28.cpp  
 // Friends can access private members of a class.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include "fmt/format.h" // In C++20, this will be #include <format> 
 
@@ -22,9 +22,9 @@ void modifyX(Count& c, int value) {
 int main() {
    Count counter{}; // create Count object
 
-   std::cout << fmt::format("Initial counter.m_x: {}\n", counter.getX());
+   std::cout << std::format("Initial counter.m_x: {}\n", counter.getX());
    modifyX(counter, 8); // change x's value using a friend function
-   std::cout << fmt::format("counter.m_x after modifyX: {}\n",
+   std::cout << std::format("counter.m_x after modifyX: {}\n",
       counter.getX());
 }
 

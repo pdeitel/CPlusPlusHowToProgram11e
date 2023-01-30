@@ -1,6 +1,6 @@
 // fig06_01.cpp
 // Initializing an array's elements to zeros and printing the array.
-#include <fmt/format.h> // C++20: This will be #include <format>
+#include <format>
 #include <iostream>
 #include <array>
 
@@ -12,18 +12,18 @@ int main() {
       values[i] = 0; // set element at location i to 0
    }
 
-   std::cout << fmt::format("{:>7}{:>10}\n", "Element", "Value");
+   std::cout << std::format("{:>7}{:>10}\n", "Element", "Value");
 
    // output each array element's value
    for (size_t i{0}; i < values.size(); ++i) {
-      std::cout << fmt::format("{:>7}{:>10}\n", i, values[i]);
+      std::cout << std::format("{:>7}{:>10}\n", i, values[i]);
    }
 
-   std::cout << fmt::format("\n{:>7}{:>10}\n", "Element", "Value");
+   std::cout << std::format("\n{:>7}{:>10}\n", "Element", "Value");
 
    // access elements via the at member function
    for (size_t i{0}; i < values.size(); ++i) {
-      std::cout << fmt::format("{:>7}{:>10}\n", i, values.at(i));
+      std::cout << std::format("{:>7}{:>10}\n", i, values.at(i));
    }
 
    // accessing an element outside the array's bounds with at

@@ -1,6 +1,6 @@
 // fig06_08.cpp
 // Poll analysis program.
-#include <fmt/format.h> // C++20: This will be #include <format>
+#include <format>
 #include <iostream>
 #include <array>
 
@@ -19,11 +19,11 @@ int main() {
       ++frequency.at(response);
    }
 
-   std::cout << fmt::format("{}{:>12}\n", "Rating", "Frequency");
+   std::cout << std::format("{}{:>12}\n", "Rating", "Frequency");
 
    // output each array element's value
    for (size_t rating{1}; rating < frequency.size(); ++rating) {
-      std::cout << fmt::format("{:>6}{:>12}\n",
+      std::cout << std::format("{:>6}{:>12}\n",
          rating, frequency.at(rating));
    }
 }

@@ -1,7 +1,7 @@
 // fig10_17.cpp
 // Processing Employee derived-class objects with variable-name handles 
 // then polymorphically using base-class pointers and references
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include <vector>
 #include "Employee.h"
@@ -18,7 +18,7 @@ int main() {
 
    // output each Employee
    std::cout << "EMPLOYEES PROCESSED INDIVIDUALLY VIA VARIABLE NAMES\n"
-      << fmt::format("{}\n{}{:.2f}\n\n{}\n{}{:.2f}\n\n",
+      << std::format("{}\n{}{:.2f}\n\n{}\n{}{:.2f}\n\n",
             salaried.toString(), "earned $", salaried.earnings(),
             commission.toString(), "earned $", commission.earnings());
 
@@ -48,14 +48,14 @@ int main() {
 // call Employee virtual functions toString and earnings via a   
 // base-class pointer using dynamic binding                   
 void virtualViaPointer(const Employee* baseClassPtr) {
-   std::cout << fmt::format("{}\nearned ${:.2f}\n\n",
+   std::cout << std::format("{}\nearned ${:.2f}\n\n",
       baseClassPtr->toString(), baseClassPtr->earnings());
 }
 
 // call Employee virtual functions toString and earnings via a  
 // base-class reference using dynamic binding                
 void virtualViaReference(const Employee& baseClassRef) {
-   std::cout << fmt::format("{}\nearned ${:.2f}\n\n",
+   std::cout << std::format("{}\nearned ${:.2f}\n\n",
       baseClassRef.toString(), baseClassRef.earnings());
 }
 

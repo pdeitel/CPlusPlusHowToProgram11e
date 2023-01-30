@@ -2,7 +2,7 @@
 // Serializing and deserializing objects with the cereal library.
 #include <cereal/archives/json.hpp> 
 #include <cereal/types/vector.hpp>  
-#include <fmt/format.h>
+#include <format>
 #include <fstream>
 #include <iostream>
 #include <vector>
@@ -27,7 +27,7 @@ void serialize(Archive& archive, Record& record) {
 // display record at command line
 void displayRecords(const std::vector<Record>& records) {
    for (const auto& r : records) {
-      std::cout << fmt::format("{} {} {} {:.2f}\n",
+      std::cout << std::format("{} {} {} {:.2f}\n",
          r.account, r.first, r.last, r.balance);
    }
 }

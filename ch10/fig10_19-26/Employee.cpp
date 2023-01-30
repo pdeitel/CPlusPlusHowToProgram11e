@@ -1,6 +1,6 @@
 // Fig. 10.21: Employee.cpp
 // Class Employee member-function definitions.
-#include <fmt/format.h> 
+#include <format> 
 #include <string> 
 #include "CompensationModel.h"
 #include "Employee.h" 
@@ -23,7 +23,7 @@ double Employee::earnings() const {
 
 // return string representation of Employee object        
 std::string Employee::toString() const {                       
-   return fmt::format("{}\n{}", m_name, m_modelPtr->toString());
+   return std::format("{}\n{}", m_name, m_modelPtr->toString());
 }                    
 
 /**************************************************************************

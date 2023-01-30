@@ -1,6 +1,6 @@
 // Fig. 10.23: Salaried.cpp
 // Salaried compensation model member-function definitions.
-#include <fmt/format.h>
+#include <format>
 #include <stdexcept>
 #include "Salaried.h" // class definition
 
@@ -16,7 +16,7 @@ double Salaried::earnings() const {return m_salary;}
 
 // override CompensationModel pure virtual function toString  
 std::string Salaried::toString() const {
-   return fmt::format("salary: ${:.2f}", m_salary);
+   return std::format("salary: ${:.2f}", m_salary);
 } 
 
 

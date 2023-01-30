@@ -1,7 +1,7 @@
 // fig08_10.cpp
 // Creating a sequential file.
 #include <cstdlib> // exit function prototype              
-#include <fmt/format.h> 
+#include <format> 
 #include <fstream> // contains file stream processing types
 #include <iostream>
 #include <string>
@@ -18,7 +18,7 @@ int main() {
 
       // read account, name and balance from cin, then place in file
       while (std::cin >> account >> name >> balance) {
-         output << fmt::format("{} {} {}\n", account, name, balance);
+         output << std::format("{} {} {}\n", account, name, balance);
          std::cout << "? ";
       }
    }

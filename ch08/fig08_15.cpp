@@ -1,6 +1,6 @@
 // fig08_15.cpp
 // Reading the Titanic dataset from a CSV file, then analyzing it.
-#include <fmt/format.h> 
+#include <format> 
 #include <algorithm>
 #include <cmath>
 #include <iostream>
@@ -23,19 +23,19 @@ int main() {
    auto pclass{titanic.GetColumn<int>("pclass")};
 
    // display first 5 rows
-   std::cout << fmt::format("First five rows:\n{:<10}{:<8}{:<6}{}\n",
+   std::cout << std::format("First five rows:\n{:<10}{:<8}{:<6}{}\n",
       "survived", "sex", "age", "class");
    for (size_t i{0}; i < 5; ++i) {
-      std::cout << fmt::format("{:<10}{:<8}{:<6.1f}{}\n",
+      std::cout << std::format("{:<10}{:<8}{:<6.1f}{}\n",
          survived.at(i), sex.at(i), age.at(i), pclass.at(i));
    }
 
    // display last 5 rows
-   std::cout << fmt::format("\nLast five rows:\n{:<10}{:<8}{:<6}{}\n",
+   std::cout << std::format("\nLast five rows:\n{:<10}{:<8}{:<6}{}\n",
       "survived", "sex", "age", "class");
    const auto count{titanic.GetRowCount()};
    for (size_t i{count - 5}; i < count; ++i) {
-      std::cout << fmt::format("{:<10}{:<8}{:<6.1f}{}\n",
+      std::cout << std::format("{:<10}{:<8}{:<6.1f}{}\n",
          survived.at(i), sex.at(i), age.at(i), pclass.at(i));
    }
 
@@ -58,12 +58,12 @@ int main() {
    }
 
    std::cout << "\nDescriptive statistics for the age column:\n"
-      << fmt::format("Passengers with age data: {}\n", size)
-      << fmt::format("Average age: {:.2f}\n", std::accumulate(
+      << std::format("Passengers with age data: {}\n", size)
+      << std::format("Average age: {:.2f}\n", std::accumulate(
          std::begin(cleanAge), std::end(cleanAge), 0.0) / size)
-      << fmt::format("Minimum age: {:.2f}\n", cleanAge.front())
-      << fmt::format("Maximum age: {:.2f}\n", cleanAge.back())
-      << fmt::format("Median age: {:.2f}\n", median);
+      << std::format("Minimum age: {:.2f}\n", cleanAge.front())
+      << std::format("Maximum age: {:.2f}\n", cleanAge.back())
+      << std::format("Median age: {:.2f}\n", median);
 
    // passenger counts by class
    auto countClass{
@@ -81,7 +81,7 @@ int main() {
    const auto thirdCount{countClass(pclass, thirdClass)};
 
    std::cout << "\nPassenger counts by class:\n"
-      << fmt::format("1st: {}\n2nd: {}\n3rd: {}\n\n",
+      << std::format("1st: {}\n2nd: {}\n3rd: {}\n\n",
          firstCount, secondCount, thirdCount);
 
    // percentage of people who survived
@@ -89,9 +89,9 @@ int main() {
       std::ranges::count_if(survived, [](auto x) {return x;})
    };
 
-   std::cout << fmt::format("Survived count: {}\nDied count: {}\n",
+   std::cout << std::format("Survived count: {}\nDied count: {}\n",
       survivorCount, survived.size() - survivorCount);
-   std::cout << fmt::format("Percent who survived: {:.2f}%\n\n",
+   std::cout << std::format("Percent who survived: {:.2f}%\n\n",
       100.0 * survivorCount / survived.size());
 
    // count who survived by male/female, 1st/2nd/3rd class
@@ -118,15 +118,15 @@ int main() {
    }
 
    // percentages who survived by male/female, 1st/2nd/3rd class
-   std::cout << fmt::format("Female survivor percentage: {:.2f}%\n",
+   std::cout << std::format("Female survivor percentage: {:.2f}%\n",
       100.0 * survivingWomen / survivorCount)
-      << fmt::format("Male survivor percentage: {:.2f}%\n\n",
+      << std::format("Male survivor percentage: {:.2f}%\n\n",
          100.0 * survivingMen / survivorCount)
-      << fmt::format("1st class survivor percentage: {:.2f}%\n",
+      << std::format("1st class survivor percentage: {:.2f}%\n",
          100.0 * surviving1st / survivorCount)
-      << fmt::format("2nd class survivor percentage: {:.2f}%\n",
+      << std::format("2nd class survivor percentage: {:.2f}%\n",
          100.0 * surviving2nd / survivorCount)
-      << fmt::format("3rd class survivor percentage: {:.2f}%\n",
+      << std::format("3rd class survivor percentage: {:.2f}%\n",
          100.0 * surviving3rd / survivorCount);
 }
 

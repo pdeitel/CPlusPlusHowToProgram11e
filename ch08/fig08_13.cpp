@@ -1,6 +1,6 @@
 // fig08_13.cpp
 // Demonstrating input from an istringstream object.
-#include <fmt/format.h> 
+#include <format> 
 #include <iostream>
 #include <sstream> 
 #include <string>
@@ -17,14 +17,14 @@ int main() {
    input >> s1 >> s2 >> i >> d >> c;
 
    std::cout << "Items extracted from the istringstream object:\n"
-      << fmt::format("{}\n{}\n{}\n{}\n{}\n", s1, s2, i, d, c);
+      << std::format("{}\n{}\n{}\n{}\n{}\n", s1, s2, i, d, c);
 
    // attempt to read from empty stream
    if (long value; input >> value) {
-      std::cout << fmt::format("\nlong value is: {}\n", value);
+      std::cout << std::format("\nlong value is: {}\n", value);
    }
    else {
-      std::cout << fmt::format("\ninput is empty\n");
+      std::cout << std::format("\ninput is empty\n");
    }
 }
 

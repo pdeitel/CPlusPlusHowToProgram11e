@@ -1,6 +1,6 @@
 // fig10_06.cpp
 // SalariedCommissionEmployee class test program.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include "SalariedCommissionEmployee.h" 
 
@@ -10,7 +10,7 @@ int main() {
 
    // get SalariedCommissionEmployee data
    std::cout << "Employee information obtained by get functions:\n"
-      << fmt::format("{}: {}\n{}: {:.2f}\n{}: {:.2f}\n{}: {:.2f}\n",
+      << std::format("{}: {}\n{}: {:.2f}\n{}: {:.2f}\n{}: {:.2f}\n",
             "name", employee.getName(), "salary", employee.getSalary(),
             "gross sales", employee.getGrossSales(),
             "commission", employee.getCommissionRate());
@@ -21,7 +21,7 @@ int main() {
       << employee.toString();
 
    // display the employee's earnings
-   std::cout << fmt::format("\nearnings: ${:.2f}\n", employee.earnings());
+   std::cout << std::format("\nearnings: ${:.2f}\n", employee.earnings());
 }
 
 

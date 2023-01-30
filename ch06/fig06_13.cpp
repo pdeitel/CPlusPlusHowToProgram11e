@@ -1,7 +1,7 @@
 // fig06_13.cpp
 // Functional-style programming with C++20 ranges and views.
 #include <array>
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include <numeric>
 #include <ranges>
@@ -10,10 +10,10 @@ int main() {
    // lambda to display results of range operations
    auto showValues{
       [](auto& values, const std::string& message) {
-         std::cout << fmt::format("{}: ", message);
+         std::cout << std::format("{}: ", message);
 
          for (const auto& value : values) {
-            std::cout << fmt::format("{} ", value);
+            std::cout << std::format("{} ", value);
          }
 
          std::cout << '\n';
@@ -40,7 +40,7 @@ int main() {
    showValues(values4, "Squares of even integers");
 
    // total the squares of the even integers 
-   std::cout << fmt::format("Sum squares of even integers 2-10: {}\n",
+   std::cout << std::format("Sum squares of even integers 2-10: {}\n",
       std::accumulate(std::begin(values4), std::end(values4), 0));
 
    // process a container's elements

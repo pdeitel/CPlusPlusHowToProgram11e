@@ -1,6 +1,6 @@
 // Fig. 10.2: SalariedEmployee.cpp
 // Class SalariedEmployee member-function definitions.
-#include <fmt/format.h>
+#include <format>
 #include <stdexcept>
 #include "SalariedEmployee.h" // SalariedEmployee class definition
 
@@ -35,7 +35,7 @@ double SalariedEmployee::earnings() const {return getSalary();}
 
 // return string representation of SalariedEmployee object        
 std::string SalariedEmployee::toString() const {                       
-   return fmt::format("name: {}\nsalary: ${:.2f}\n", getName(), 
+   return std::format("name: {}\nsalary: ${:.2f}\n", getName(), 
       getSalary());
 }                                                                   
                                                             

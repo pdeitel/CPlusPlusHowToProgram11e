@@ -1,6 +1,6 @@
 // fig10_03.cpp
 // SalariedEmployee class test program.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include "SalariedEmployee.h" // SalariedEmployee class definition
 
@@ -10,7 +10,7 @@ int main() {
 
    // get SalariedEmployee data
    std::cout << "Employee information obtained by get functions:\n"
-      << fmt::format("name: {}\nsalary: ${:.2f}\n", employee.getName(),
+      << std::format("name: {}\nsalary: ${:.2f}\n", employee.getName(),
             employee.getSalary());
 
    employee.setSalary(500.0); // change salary      
@@ -18,7 +18,7 @@ int main() {
       << employee.toString();
 
    // display only the employee's earnings
-   std::cout << fmt::format("\nearnings: ${:.2f}\n", employee.earnings());
+   std::cout << std::format("\nearnings: ${:.2f}\n", employee.earnings());
 }
 
 

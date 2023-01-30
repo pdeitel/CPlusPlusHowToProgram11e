@@ -1,6 +1,6 @@
 // Fig. 9.31: Time.cpp 
 // Time class member-function definitions.
-#include <fmt/format.h>
+#include <format>
 #include <stdexcept>
 #include "Time.h" // Time class definition
 
@@ -56,13 +56,13 @@ int Time::getSecond() const {return m_second;}
 
 // return Time as a string in 24-hour format (HH:MM:SS)
 std::string Time::to24HourString() const {
-   return fmt::format("{:02d}:{:02d}:{:02d}", 
+   return std::format("{:02d}:{:02d}:{:02d}", 
       getHour(), getMinute(), getSecond());
 } 
 
 // return Time as string in 12-hour format (HH:MM:SS AM or PM)
 std::string Time::to12HourString() const {
-   return fmt::format("{}:{:02d}:{:02d} {}", 
+   return std::format("{}:{:02d}:{:02d} {}", 
       ((getHour() % 12 == 0) ? 12 : getHour() % 12), 
       getMinute(), getSecond(), (getHour() < 12 ? "AM" : "PM"));
 } 

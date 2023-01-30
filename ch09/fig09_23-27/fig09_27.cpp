@@ -1,6 +1,6 @@
 // fig09_27.cpp
 // Demonstrating composition--an object with member objects.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include "Date.h" // Date class definition
 #include "Employee.h" // Employee class definition
@@ -10,7 +10,7 @@ int main() {
    const Date hire{2018, 3, 12};
    const Employee manager{"Sue", "Green", birth, hire};
 
-   std::cout << fmt::format("\n{}\n\n", manager.toString());
+   std::cout << std::format("\n{}\n\n", manager.toString());
 }
 
 

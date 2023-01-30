@@ -1,6 +1,6 @@
 // Fig. 10.16: CommissionEmployee.cpp
 // CommissionEmployee class member-function definitions.
-#include <fmt/format.h>
+#include <format>
 #include <stdexcept>
 #include "CommissionEmployee.h" // CommissionEmployee class definition
 
@@ -45,7 +45,7 @@ double CommissionEmployee::earnings() const {
 
 // return string representation of CommissionEmployee object        
 std::string CommissionEmployee::toString() const {                       
-   return fmt::format("{}\n{}: ${:.2f}\n{}: {:.2f}", Employee::toString(),
+   return std::format("{}\n{}: ${:.2f}\n{}: {:.2f}", Employee::toString(),
       "gross sales", getGrossSales(),
       "commission rate", getCommissionRate());                  
 }                                                                   

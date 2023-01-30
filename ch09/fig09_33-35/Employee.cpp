@@ -1,6 +1,6 @@
 // Fig. 9.34: Employee.cpp
 // Employee class member-function definitions.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include "Employee.h" // Employee class definition 
 using namespace std;
@@ -14,13 +14,13 @@ int Employee::getCount() {return m_count;}
 Employee::Employee(string_view firstName, string_view lastName)
    : m_firstName(firstName), m_lastName(lastName) {
    ++m_count; // increment static count of employees
-   std::cout << fmt::format("Employee constructor called for {} {}\n", 
+   std::cout << std::format("Employee constructor called for {} {}\n", 
       m_firstName, m_lastName);
 } 
 
 // destructor decrements the count
 Employee::~Employee() {
-   std::cout << fmt::format("~Employee() called for {} {}\n", 
+   std::cout << std::format("~Employee() called for {} {}\n", 
       m_firstName, m_lastName);
    --m_count; // decrement static count of employees
 }

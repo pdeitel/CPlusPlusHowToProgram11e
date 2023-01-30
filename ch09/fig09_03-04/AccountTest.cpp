@@ -1,7 +1,7 @@
 // Fig. 9.4: AccountTest.cpp
 // Using the Account constructor to initialize the m_name 
 // data member when each Account object is created.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include "Account.h"
 
@@ -11,7 +11,7 @@ int main() {
    Account account2{"John Blue"};
 
    // display each Account's corresponding name
-   std::cout << fmt::format(
+   std::cout << std::format(
       "account1 name is: {}\naccount2 name is: {}\n",
       account1.getName(), account2.getName());
 }

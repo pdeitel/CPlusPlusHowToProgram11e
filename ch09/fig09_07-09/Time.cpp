@@ -1,6 +1,6 @@
 // Fig. 9.8: Time.cpp
 // Time class member-function definitions. 
-#include <fmt/format.h>
+#include <format>
 #include <stdexcept> // for invalid_argument exception class     
 #include <string>
 #include "Time.h" // include definition of class Time from Time.h 
@@ -21,12 +21,12 @@ void Time::setTime(int hour, int minute, int second) {
 
 // return Time as a string in 24-hour format (HH:MM:SS)
 std::string Time::to24HourString() const {
-   return fmt::format("{:02d}:{:02d}:{:02d}", m_hour, m_minute, m_second);
+   return std::format("{:02d}:{:02d}:{:02d}", m_hour, m_minute, m_second);
 }
 
 // return Time as string in 12-hour format (HH:MM:SS AM or PM)
 std::string Time::to12HourString() const {
-   return fmt::format("{}:{:02d}:{:02d} {}",
+   return std::format("{}:{:02d}:{:02d} {}",
       ((m_hour % 12 == 0) ? 12 : m_hour % 12), m_minute, m_second,
       (m_hour < 12 ? "AM" : "PM"));
 }

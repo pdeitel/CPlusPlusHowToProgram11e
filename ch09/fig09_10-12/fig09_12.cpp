@@ -1,6 +1,6 @@
 // fig09_12.cpp 
 // Constructor with default arguments.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -8,7 +8,7 @@
 
 // displays a Time in 24-hour and 12-hour formats
 void displayTime(std::string_view message, const Time& time) {
-   std::cout << fmt::format("{}\n24-hour time: {}\n12-hour time: {}\n\n",
+   std::cout << std::format("{}\n24-hour time: {}\n12-hour time: {}\n\n",
       message, time.to24HourString(), time.to12HourString());
 }
 
@@ -29,7 +29,7 @@ int main() {
       const Time t5{27, 74, 99}; // all bad values specified
    }
    catch (const std::invalid_argument& e) {
-      std::cerr << fmt::format("t5 not created: {}\n", e.what());
+      std::cerr << std::format("t5 not created: {}\n", e.what());
    }
 }
 

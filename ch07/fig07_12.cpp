@@ -1,7 +1,7 @@
 // fig07_12.cpp
 // C++20 spans: Creating views into containers.
 #include <array>
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include <numeric>
 #include <span>
@@ -11,7 +11,7 @@
 // know how to iterate over items with counter-controlled iteration
 void displayArray(const int items[], size_t size) {
    for (size_t i{0}; i < size; ++i) {
-      std::cout << fmt::format("{} ", items[i]);
+      std::cout << std::format("{} ", items[i]);
    }
 }
 
@@ -19,7 +19,7 @@ void displayArray(const int items[], size_t size) {
 // and the number of elements, so we can iterate using range-based for
 void displaySpan(std::span<const int> items) {
    for (const auto& item : items) { // spans are iterable
-      std::cout << fmt::format("{} ", item);
+      std::cout << std::format("{} ", item);
    }
 }
 

@@ -1,6 +1,6 @@
 // fig06_04.cpp
 // Set array values to the even integers from 2 to 10.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include <array>
 
@@ -16,7 +16,7 @@ int main() {
 
    // output contents of array values in tabular format
    for (const int& value : values) {
-      std::cout << fmt::format("{}  ", value);
+      std::cout << std::format("{}  ", value);
    }
 
    std::cout << '\n';

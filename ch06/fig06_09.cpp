@@ -2,7 +2,7 @@
 // Sorting and searching arrays.
 #include <array>
 #include <algorithm> // contains sort and binary_search
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include <string>
 
@@ -16,7 +16,7 @@ int main() {
    // output original array
    std::cout << "Unsorted colors array:\n   ";
    for (const std::string& color : colors) {
-      std::cout << fmt::format("{} ", color);
+      std::cout << std::format("{} ", color);
    }
 
    // sort contents of colors
@@ -25,19 +25,19 @@ int main() {
    // output sorted array
    std::cout << "\nSorted colors array:\n   ";
    for (const std::string& color : colors) {
-      std::cout << fmt::format("{} ", color);
+      std::cout << std::format("{} ", color);
    }
 
    // search for "indigo" in colors
    bool found{std::binary_search(
       std::begin(colors), std::end(colors), "indigo")};
-   std::cout << fmt::format("\n\n\"indigo\" {} found in colors array\n",
+   std::cout << std::format("\n\n\"indigo\" {} found in colors array\n",
       found ? "was" : "was not");
 
    // search for "cyan" in colors
    found = std::binary_search(
       std::begin(colors), std::end(colors), "cyan");
-   std::cout << fmt::format("\"cyan\" {} found in colors array\n",
+   std::cout << std::format("\"cyan\" {} found in colors array\n",
       found ? "was" : "was not");
 }
 

@@ -1,6 +1,6 @@
 // fig08_06.cpp
 // Demonstrating the string find member functions.
-#include <fmt/format.h> 
+#include <format> 
 #include <iostream>
 #include <string>
 
@@ -9,34 +9,34 @@ int main() {
    std::cout << "Original string: " << s;
 
    // find "is" from the beginning and end of s
-   std::cout << fmt::format("\ns.find(\"is\"): {}\ns.rfind(\"is\"): {}",
+   std::cout << std::format("\ns.find(\"is\"): {}\ns.rfind(\"is\"): {}",
       s.find("is"), s.rfind("is"));
 
    // find 'o' from beginning
    int location{s.find_first_of("misop")};
-   std::cout << fmt::format("\ns.find_first_of(\"misop\") found {} at {}",
+   std::cout << std::format("\ns.find_first_of(\"misop\") found {} at {}",
       s.at(location), location);
 
    // find 'o' from end
    location = s.find_last_of("misop");
-   std::cout << fmt::format("\ns.find_last_of(\"misop\") found {} at {}",
+   std::cout << std::format("\ns.find_last_of(\"misop\") found {} at {}",
       s.at(location), location);
 
    // find '1' from beginning
    location = s.find_first_not_of("noi spm");
-   std::cout << fmt::format(
+   std::cout << std::format(
       "\ns.find_first_not_of(\"noi spm\") found {} at {}",
       s.at(location), location);
 
    // find ';' at location 12
    location = s.find_first_not_of("12noi spm");
-   std::cout << fmt::format(
+   std::cout << std::format(
       "\ns.find_first_not_of(\"12noi spm\") found {} at {}",
       s.at(location), location);
 
    // search for characters not in "noon is 12pm; midnight is not"
    location = s.find_first_not_of("noon is 12pm; midnight is not");
-   std::cout << fmt::format("\n{}: {}\n",
+   std::cout << std::format("\n{}: {}\n",
       "s.find_first_not_of(\"noon is 12pm; midnight is not\")",
       location);
 }

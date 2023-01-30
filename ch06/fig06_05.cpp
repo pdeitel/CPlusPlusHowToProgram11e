@@ -1,6 +1,6 @@
 // fig06_05.cpp
 // Compute the sum of an array's elements.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include <array>
 
@@ -13,7 +13,7 @@ int main() {
       total += item;
    }
 
-   std::cout << fmt::format("Total of array elements: {}\n", total);
+   std::cout << std::format("Total of array elements: {}\n", total);
 }
 
 

@@ -1,6 +1,6 @@
 // Fig. 9.20: Date.cpp
 // Date class member-function definitions.
-#include <fmt/format.h>
+#include <format>
 #include <string>
 #include "Date.h" // include definition of class Date from Date.h
 
@@ -10,7 +10,7 @@ Date::Date(int year, int month, int day)
 
 // return string representation of a Date in the format yyyy-mm-dd
 std::string Date::toString() const {
-   return fmt::format("{}-{:02d}-{:02d}", m_year, m_month, m_day);
+   return std::format("{}-{:02d}-{:02d}", m_year, m_month, m_day);
 }
 
 /**************************************************************************

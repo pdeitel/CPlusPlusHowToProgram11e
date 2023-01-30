@@ -1,7 +1,7 @@
 // fig08_11.cpp
 // Reading and printing a sequential file.
 #include <cstdlib> 
-#include <fmt/format.h> 
+#include <format> 
 #include <fstream> // file stream        
 #include <iostream>
 #include <string>
@@ -9,7 +9,7 @@
 int main() {
    // ifstream opens the file          
    if (std::ifstream input{"clients.txt", std::ios::in}) {
-      std::cout << fmt::format("{:<10}{:<13}{:>7}\n",
+      std::cout << std::format("{:<10}{:<13}{:>7}\n",
          "Account", "Name", "Balance");
 
       int account;
@@ -18,7 +18,7 @@ int main() {
 
       // display each record in file
       while (input >> account >> name >> balance) {
-         std::cout << fmt::format("{:<10}{:<13}{:>7.2f}\n",
+         std::cout << std::format("{:<10}{:<13}{:>7.2f}\n",
             account, name, balance);
       }
    }

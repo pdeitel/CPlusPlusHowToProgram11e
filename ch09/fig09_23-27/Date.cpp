@@ -1,7 +1,7 @@
 // Fig. 9.24: Date.cpp
 // Date class member-function definitions.
 #include <array>
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include <stdexcept>
 #include "Date.h" // include Date class definition
@@ -20,17 +20,17 @@ Date::Date(int year, int month, int day)
    }
 
    // output Date object to show when its constructor is called
-   std::cout << fmt::format("Date object constructor: {}\n", toString());
+   std::cout << std::format("Date object constructor: {}\n", toString());
 }
 
 // gets string representation of a Date in the form yyyy-mm-dd
 std::string Date::toString() const {
-   return fmt::format("{}-{:02d}-{:02d}", m_year, m_month, m_day);
+   return std::format("{}-{:02d}-{:02d}", m_year, m_month, m_day);
 }
 
 // output Date object to show when its destructor is called
 Date::~Date() {
-   std::cout << fmt::format("Date object destructor: {}\n", toString());
+   std::cout << std::format("Date object destructor: {}\n", toString());
 }
 
 // utility function to confirm proper day value based on 

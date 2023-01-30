@@ -1,13 +1,13 @@
 // fig09_35.cpp
 // static data member tracking the number of objects of a class.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include "Employee.h" // Employee class definition
 
 int main() {
    // no objects exist; use class name and scope resolution 
    // operator to access static member function getCount
-   std::cout << fmt::format("Initial employee count: {}\n",
+   std::cout << std::format("Initial employee count: {}\n",
       Employee::getCount()); // use class name
 
    // the following scope creates and destroys 
@@ -18,18 +18,18 @@ int main() {
 
       // two objects exist; call static member function getCount again 
       // using the class name and the scope resolution operator
-      std::cout << fmt::format(
+      std::cout << std::format(
          "Employee count after creating objects: {}\n\n",
          Employee::getCount());
 
-      std::cout << fmt::format("Employee 1: {} {}\nEmployee 2: {} {}\n\n",
+      std::cout << std::format("Employee 1: {} {}\nEmployee 2: {} {}\n\n",
          e1.getFirstName(), e1.getLastName(),
          e2.getFirstName(), e2.getLastName());
    }
 
    // no objects exist, so call static member function getCount again 
    // using the class name and the scope resolution operator
-   std::cout << fmt::format(
+   std::cout << std::format(
       "Employee count after objects are deleted: {}\n",
       Employee::getCount());
 }

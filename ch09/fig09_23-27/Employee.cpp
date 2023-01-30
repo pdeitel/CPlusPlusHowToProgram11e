@@ -1,6 +1,6 @@
 // Fig. 9.26: Employee.cpp
 // Employee class member-function definitions.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 #include "Employee.h" // Employee class definition
 using namespace std;
@@ -12,19 +12,19 @@ Employee::Employee(std::string_view firstName, std::string_view lastName,
    : m_firstName{firstName}, m_lastName{lastName},
    m_birthDate{birthDate}, m_hireDate{hireDate} {
    // output Employee object to show when constructor is called
-   std::cout << fmt::format("Employee object constructor: {} {}\n",
+   std::cout << std::format("Employee object constructor: {} {}\n",
       m_firstName, m_lastName);
 }
 
 // gets string representation of an Employee object
 std::string Employee::toString() const {
-   return fmt::format("{}, {}  Hired: {}  Birthday: {}", m_lastName,
+   return std::format("{}, {}  Hired: {}  Birthday: {}", m_lastName,
       m_firstName, m_hireDate.toString(), m_birthDate.toString());
 }
 
 // output Employee object to show when its destructor is called
 Employee::~Employee() {
-   cout << fmt::format("Employee object destructor: {}, {}\n",
+   cout << std::format("Employee object destructor: {}, {}\n",
       m_lastName, m_firstName);
 }
 

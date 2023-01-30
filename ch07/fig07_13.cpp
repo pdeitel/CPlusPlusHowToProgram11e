@@ -1,13 +1,13 @@
 // fig07_13.cpp
 // Reading in command-line arguments.
-#include <fmt/format.h>
+#include <format>
 #include <iostream>
 
 int main(int argc, char* argv[]) {
-   std::cout << fmt::format("Number of arguments: {}\n\n", argc);
+   std::cout << std::format("Number of arguments: {}\n\n", argc);
 
    for (int i{0}; i < argc; ++i) {
-      std::cout << fmt::format("{}\n", argv[i]);
+      std::cout << std::format("{}\n", argv[i]);
    }
 }
 

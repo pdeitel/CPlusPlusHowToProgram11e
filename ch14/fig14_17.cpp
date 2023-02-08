@@ -30,9 +30,9 @@ std::ostream& operator<<(std::ostream& out, const Employee& e) {
 
 int main() {
    std::array employees{
-      Employee{"Jason", "Red", 5000},
-      Employee{"Ashley", "Green", 7600},
-      Employee{"Matthew", "Indigo", 3587}
+      Employee{"Joo-won", "Wu", 5000},
+      Employee{"Amaia", "Jones", 7600},
+      Employee{"Titania", "Makaya", 3587}
    };
 
    std::ostream_iterator<Employee> output{std::cout, "\n"};

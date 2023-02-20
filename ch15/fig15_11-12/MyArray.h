@@ -2,6 +2,7 @@
 // Class template MyArray with custom iterators implemented 
 // by class templates ConstIterator and Iterator
 #pragma once
+
 #include <algorithm>
 #include <compare>
 #include <initializer_list>
@@ -9,7 +10,6 @@
 #include <iterator>
 #include <stdexcept>
 #include <utility>
-
 
 // class template ConstIterator for a MyArray const iterator 
 template <typename T>

@@ -1,5 +1,5 @@
 // fig19_20.cpp 
-// C++20 text-formatting presentation types.
+// C++20 text formatting presentation types.
 #include <format>
 #include <iostream>
 

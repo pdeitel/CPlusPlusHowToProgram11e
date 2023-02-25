@@ -1,5 +1,5 @@
 // fig19_23.cpp 
-// C++20 text-formatting field width and precision placeholders.
+// C++20 text formatting field width and precision placeholders.
 #include <format>
 #include <iostream>
 

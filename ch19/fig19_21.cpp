@@ -1,5 +1,5 @@
 // fig19_21.cpp 
-// C++20 text-formatting with field widths and alignment.
+// C++20 text formatting with field widths and alignment.
 #include <format>
 #include <iostream>
 

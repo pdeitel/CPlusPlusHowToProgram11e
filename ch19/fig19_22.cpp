@@ -1,5 +1,5 @@
 // fig19_22.cpp 
-// C++20 text-formatting numeric formatting options.
+// C++20 text formatting numeric formatting options.
 #include <format>
 #include <iostream>
 

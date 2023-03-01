@@ -24,7 +24,7 @@ public:
    }
    catch (const std::runtime_error& ex) {
       std::cout << std::format(
-         "Exception while constructing ResourceManager: ", ex.what())
+         "Exception while constructing ResourceManager: {}", ex.what())
          << "\nAutomatically rethrowing the exception\n";
    }
 private:

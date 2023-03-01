@@ -1,57 +1,69 @@
 // fig08_16.cpp
-// Using the miniz-cpp header-only library to write and read a ZIP file.
+// Matching entire strings to regular expressions.
+#include <format> 
 #include <iostream>
-#include <string>
-#include "zip_file.hpp"
-using namespace std;
+#include <regex>
 
 int main() {
-   cout << "Enter a ZIP file name: ";
-   string zipFileName;
-   getline(cin, zipFileName); // inputs a line of text
+   // fully match a pattern of literal characters
+   std::regex r1{"02215"};
+   std::cout << "Matching against: 02215\n"
+      << std::format("02215: {}; 51220: {}\n\n",
+            std::regex_match("02215", r1), std::regex_match("51220", r1));
 
-   // string literals separated only by whitespace are combined 
-   // into a single string by the compiler
-   string content{ 
-      "This chapter introduces all but one of the remaining control "
-      "statements--the for, do...while, switch, break and continue "
-      "statements. We explore the essentials of counter-controlled "
-      "iteration. We use compound-interest calculations to begin "
-      "investigating the issues of processing monetary amounts. First, "
-      "we discuss the representational errors associated with "
-      "floating-point types. We use a switch statement to count the "
-      "number of A, B, C, D and F grade equivalents in a set of "
-      "numeric grades. We show C++17's enhancements that allow you to "
-      "initialize one or more variables of the same type in the "
-      "headers of if and switch statements."};
+   // fully match five digits
+   std::regex r2{R"(\d{5})"};
+   std::cout << R"(Matching against: \d{5})" << "\n"
+      << std::format("02215: {}; 9876: {}\n\n",
+            std::regex_match("02215", r2),
+            std::regex_match("9876", r2));
 
-   cout << "\ncontent.length(): " << content.length();
+   // match a word that starts with a capital letter
+   std::regex r3{"[A-Z][a-z]*"};
+   std::cout << "Matching against: [A-Z][a-z]*\n"
+      << std::format("Wally: {}; eva: {}\n\n",
+            std::regex_match("Wally", r3), std::regex_match("eva", r3));
 
-   miniz_cpp::zip_file output; // create zip_file object
+   // match any character that's not a lowercase letter
+   std::regex r4{"[^a-z]"};
+   std::cout << "Matching against: [^a-z]\n"
+      << std::format("A: {}; a: {}\n\n",
+            std::regex_match("A", r4), std::regex_match("a", r4));
 
-   // write content into a text file in output
-   output.writestr("intro.txt", content); // create file in ZIP
-   output.save(zipFileName); // save output to zipFileName
+   // match metacharacters as literals in a custom character class
+   std::regex r5{"[*+$]"};
+   std::cout << "Matching against: [*+$]\n"
+      << std::format("*: {}; !: {}\n\n",
+            std::regex_match("*", r5), std::regex_match("!", r5));
 
-   miniz_cpp::zip_file input{zipFileName}; // load zipFileName
+   // matching a capital letter followed by at least one lowercase letter 
+   std::regex r6{"[A-Z][a-z]+"};
+   std::cout << "Matching against: [A-Z][a-z]+\n"
+      << std::format("Wally: {}; E: {}\n\n",
+            std::regex_match("Wally", r6), std::regex_match("E", r6));
 
-   // display input's file name and directory listing
-   cout << "\n\nZIP file's name: " << input.get_filename()
-      << "\n\nZIP file's directory listing:\n";
-   input.printdir(); 
+   // matching zero or one occurrences of a subexpression
+   std::regex r7{"labell?ed"};
+   std::cout << "Matching against: labell?ed\n"
+      << std::format("labelled: {}; labeled: {}; labellled: {}\n\n",
+            std::regex_match("labelled", r7),
+            std::regex_match("labeled", r7),
+            std::regex_match("labellled", r7));
 
-   // display info about the compressed intro.txt file
-   miniz_cpp::zip_info info{input.getinfo("intro.txt")};
+   // matching n (3) or more occurrences of a subexpression
+   std::regex r8{R"(\d{3,})"};
+   std::cout << R"(Matching against: \d{3,})" << "\n"
+      << std::format("123: {}; 1234567890: {}; 12: {}\n\n",
+            std::regex_match("123", r8),
+            std::regex_match("1234567890", r8),
+            std::regex_match("12", r8));
 
-   cout << "\nFile name: " << info.filename
-      << "\nOriginal size: " << info.file_size
-      << "\nCompressed size: " << info.compress_size;
-
-   // original file contents
-   string extractedContent{input.read(info)};
-
-   cout << "\n\nOriginal contents of intro.txt:\n"  
-      << extractedContent << "\n";
+   // matching n to m inclusive (3-6), occurrences of a subexpression
+   std::regex r9{R"(\d{3,6})"};
+   std::cout << R"(Matching against: \d{3,6})" << "\n"
+      << std::format("123: {}; 123456: {}; 1234567: {}; 12: {}\n",
+            std::regex_match("123", r9), std::regex_match("123456", r9),
+            std::regex_match("1234567", r9), std::regex_match("12", r9));
 }
 
 /**************************************************************************
@@ -67,4 +79,4 @@ int main() {
  * and publisher shall not be liable in any event for incidental or       *
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+ **************************************************************************/

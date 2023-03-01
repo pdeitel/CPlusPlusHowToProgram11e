@@ -27,7 +27,7 @@ int main() {
    // create string "comb" (s5 was initially empty)    
    std::string s5; // initialized to the empty string
    s5.append(s1, 4, s1.size() - 4);
-   std::cout << std::format("s5: {}", s5);
+   std::cout << std::format("s5: {}\n", s5);
 }
 
 

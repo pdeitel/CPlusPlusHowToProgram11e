@@ -30,7 +30,7 @@ int main() {
    // no objects exist, so call static member function getCount again 
    // using the class name and the scope resolution operator
    std::cout << std::format(
-      "Employee count after objects are deleted: {}\n",
+      "Employee count after objects are destroyed: {}\n",
       Employee::getCount());
 }
 

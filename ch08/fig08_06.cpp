@@ -13,7 +13,7 @@ int main() {
       s.find("is"), s.rfind("is"));
 
    // find 'o' from beginning
-   int location{s.find_first_of("misop")};
+   auto location{s.find_first_of("misop")};
    std::cout << std::format("\ns.find_first_of(\"misop\") found {} at {}",
       s.at(location), location);
 
@@ -36,9 +36,11 @@ int main() {
 
    // search for characters not in "noon is 12pm; midnight is not"
    location = s.find_first_not_of("noon is 12pm; midnight is not");
-   std::cout << std::format("\n{}: {}\n",
-      "s.find_first_not_of(\"noon is 12pm; midnight is not\")",
-      location);
+
+   if (location == std::string::npos) {
+      std::cout << std::format("\n{}: not found\n",
+         "s.find_first_not_of(\"noon is 12pm; midnight is not\")");
+   }
 }
 
 

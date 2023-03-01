@@ -29,7 +29,7 @@ int main() {
       // and code that will not execute if an exception occurs    
       try {
          double result{quotient(number1, number2)};
-         std::cout << std::format("The quotient is: {}\n", result);
+         std::cout << std::format("The quotient is: {:.2f}\n", result);
       }
       catch (const DivideByZeroException& divideByZeroException) {
          std::cout << std::format("Exception occurred: {}\n",

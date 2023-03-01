@@ -10,7 +10,7 @@ int main() {
 
    std::array<int, arraySize> values{}; // array values has 5 elements
 
-   for (size_t i{0}; i < values.size(); ++i) { // set the values
+   for (int i{0}; i < values.size(); ++i) { // set the values
       values.at(i) = 2 + 2 * i;
    }
 

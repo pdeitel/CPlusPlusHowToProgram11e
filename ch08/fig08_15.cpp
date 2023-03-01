@@ -40,8 +40,8 @@ int main() {
    }
 
    // use C++20 ranges to eliminate missing values from age column
-   auto removeNaN{
-      age | std::views::filter([](const auto& x) {return !isnan(x);})};
+   auto removeNaN{age |
+      std::views::filter([](const auto& x) {return !std::isnan(x);})};
    std::vector<double> cleanAge{
       std::begin(removeNaN), std::end(removeNaN)};
 

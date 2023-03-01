@@ -9,7 +9,7 @@ size_t getSize(double* ptr); // prototype
 int main() {
    double numbers[20]; // 20 doubles; occupies 160 bytes on our system
 
-   std::cout << std::format("Number of bytes in numbers is {}\n\n",
+   std::cout << std::format("Number of bytes in numbers is {}\n",
       sizeof(numbers));
 
    std::cout << std::format("Number of bytes returned by getSize is {}\n",

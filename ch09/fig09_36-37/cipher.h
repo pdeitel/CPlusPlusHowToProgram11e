@@ -49,7 +49,7 @@ public:
       size_t keyIndex{0}; // current letter index in secret key
 
       // iterate through each character in plaintext
-      for (size_t i{0}; i < plaintext.length(); ++i) {
+      for (size_t i{0}; i < plaintext.size(); ++i) {
          // determine whether character at i is lowercase so we can 
          // place a corresponding lowercase letter in the ciphertext
          const bool lower{std::islower(plaintext.at(i)) ? true : false};
@@ -68,8 +68,8 @@ public:
             const int row{std::toupper(secret.at(keyIndex)) - 'A'};
 
             // increment the keyIndex, ensuring that it is  
-            // reset to 0 if keyIndex reaches secret.length()
-            keyIndex = (keyIndex + 1) % secret.length();
+            // reset to 0 if keyIndex reaches secret.size()
+            keyIndex = (keyIndex + 1) % secret.size();
 
             // to get the column index in the Vigenère square,  
             // subtract 'A' from the currentChar
@@ -101,7 +101,7 @@ public:
       std::string plaintext{}; // stores unencrypted text
       size_t keyIndex{0}; // current letter index in secret key
 
-      for (size_t i{0}; i < ciphertext.length(); ++i) {
+      for (size_t i{0}; i < ciphertext.size(); ++i) {
          // determine whether character at i is lowercase so we can 
          // place a corresponding lowercase letter in plainText
          const bool lower{std::islower(ciphertext.at(i)) ? true : false};
@@ -119,8 +119,8 @@ public:
             const int row{std::toupper(secret.at(keyIndex)) - 'A'};
 
             // increment the keyIndex, ensuring that it is  
-            // reset to 0 if keyIndex reaches secret.length()
-            keyIndex = (keyIndex + 1) % secret.length();
+            // reset to 0 if keyIndex reaches secret.size()
+            keyIndex = (keyIndex + 1) % secret.size();
 
             // column in the Vigenère square
             int column{-1};

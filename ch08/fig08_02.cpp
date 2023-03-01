@@ -22,12 +22,12 @@ int main() {
    const std::string s3{"stinger"};
    const std::string s4{s2}; // "Hello"
 
-   std::cout << std::format("s1: {}\ns2: {}\ns3: {}\ns4: {}",
+   std::cout << std::format("s1: {}\ns2: {}\ns3: {}\ns4: {}\n\n",
       s1, s2, s3, s4);
 
    // comparing s1 and s4
    if (s1 > s4) {
-      std::cout << "\n\ns1 > s4\n";
+      std::cout << "s1 > s4\n";
    }
 
    // comparing s1 and s2

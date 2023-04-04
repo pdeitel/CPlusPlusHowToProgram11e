@@ -1,14 +1,26 @@
-// fig20_07.cpp
-// [[nodiscard]] attribute.
+// Fig. 20.2: Author.h
+// Author class definition.
+#pragma once
+#include <memory>
+#include <string>
+#include <string_view>
 
-[[nodiscard("Do not ignore! Otherwise, you won't know the cube of x.")]]
-int cube(int x) {
-   return x * x * x;
-}
+class Book; // forward declaration of class Book
 
-int main() {
-   cube(10); // generates a compiler warning
-}
+// Author class definition
+class Author {
+public:
+   explicit Author(std::string_view authorName);
+   ~Author();
+
+   // print the title of the Book this Author wrote
+   void printBookTitle();
+
+   std::string name; // name of the Author
+   std::weak_ptr<Book> weakBookPtr; // Book the Author wrote    
+   std::shared_ptr<Book> sharedBookPtr; // Book the Author wrote
+};
+
 
 /**************************************************************************
  * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *

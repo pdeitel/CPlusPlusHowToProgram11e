@@ -1,33 +1,28 @@
-// fig10_26.cpp
-// Processing Employees with various CompensationModels.
+// Fig. 20.15: Employee.cpp
+// Abstract-base-class Employee member-function definitions.
+// Note: No definitions are given for pure virtual functions.
 #include <format>
-#include <iostream>
-#include <vector>
-#include "Employee.h"
-#include "Salaried.h" 
-#include "Commission.h"  
+#include "Employee.h" // Employee class definition
 
-int main() {
-   // create CompensationModels and Employees
-   Salaried salaried{800.0};
-   Employee salariedEmployee{"Pierre Simon", &salaried};
+// constructor                                                        
+Employee::Employee(std::string_view name) : m_name{name} {} // empty body
 
-   Commission commission{10000, .06};
-   Employee commissionEmployee{"Sierra Dembo", &commission};
+// set name
+void Employee::setName(std::string_view name) {m_name = name;}
 
-   // create and initialize vector of Employees
-   std::vector employees{salariedEmployee, commissionEmployee};
+// get name
+std::string Employee::getName() const {return m_name;}
 
-   // print each Employee's information and earnings 
-   for (const Employee& employee : employees) {
-      std::cout << std::format("{}\nearned: ${:.2f}\n\n",
-         employee.toString(), employee.earnings());
-   }
-}
+// public non-virtual function; returns Employee's earnings
+double Employee::earnings() const {return getPay();}
 
+// public non-virtual function; returns Employee's string representation
+std::string Employee::toString() const {return getString();} 
 
-
-
+// protected virtual function that derived classes can override and call
+std::string Employee::getString() const {                       
+   return std::format("name: {}", getName());
+}                                                                                                                       
 
 /**************************************************************************
  * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *

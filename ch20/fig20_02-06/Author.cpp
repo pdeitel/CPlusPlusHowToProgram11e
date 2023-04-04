@@ -1,39 +1,35 @@
-// fig20_05.cpp
-// Demonstrating operators .* and ->*.
+// Fig. 20.4: Author.cpp
+// Author member-function definitions.
+#include <format>
 #include <iostream>
+#include <memory>
+#include <string>
+#include <string_view>
+#include "Author.h"
+#include "Book.h"
 
-// class Test definition
-class Test {
-public:
-   Test(int x) : value{x} {};
+Author::Author(std::string_view authorName) : name(authorName) {}
 
-   void testFunction() {
-      std::cout << "testFunction called\n";
+Author::~Author() {
+   std::cout << std::format("Destroying Author: {}\n", name);
+}
+
+// print the title of the Book this Author wrote
+void Author::printBookTitle() {
+   // if weakBookPtr.lock() returns a non-empty shared_ptr
+   if (std::shared_ptr<Book> bookPtr{weakBookPtr.lock()}) {
+      // show the reference count increase and print the Book's title
+      std::cout << std::format("Reference count for Book {} is {}\n",
+         bookPtr->title, bookPtr.use_count());
+      std::cout << std::format("Author {} wrote the book {}\n", 
+         name, bookPtr->title);
    }
-
-   int value; // public data member
-};
-
-void arrowStar(Test* ptr); // prototype
-void dotStar(Test* ptr); // prototype
-
-int main() {
-   Test test{8};
-   arrowStar(&test); // pass address to arrowStar
-   dotStar(&test); // pass address to dotStar
+   else { // weakBookPtr points to NULL
+      std::cout << "This Author has no Books.\n";
+   }
 }
 
-// access member function of Test object using ->*
-void arrowStar(Test* ptr) {
-   auto functionPtr{&Test::testFunction}; // pointer to a member function
-   (ptr->*functionPtr)(); // invoke function indirectly              
-}
 
-// access members of Test object data member using .*
-void dotStar(Test* ptr) {
-   auto valuePtr{&Test::value}; // pointer to a data member  
-   std::cout << "value is " << (*ptr).*valuePtr << "\n"; // access value
-}
 
 
 /**************************************************************************

@@ -1,4 +1,4 @@
-// fig09_36.cpp
+// fig09_38.cpp
 // Serializing and deserializing objects with the cereal library.
 #include <cereal/archives/json.hpp> 
 #include <cereal/types/vector.hpp>  
@@ -34,8 +34,8 @@ void displayRecords(const std::vector<Record>& records) {
 
 int main() {
    std::vector records{
-      Record{100, "Brian", "Blue", 123.45},
-      Record{200, "Sue", "Green", 987.65}
+      Record{100, "Bakary", "Zongo", 123.45},
+      Record{200, "Sofia", "Smirnova", 987.65}
    };
 
    std::cout << "Records to serialize:\n";

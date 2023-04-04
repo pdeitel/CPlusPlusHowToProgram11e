@@ -1,4 +1,4 @@
-// Fig. 20.10: Book.h
+// Fig. 20.3: Book.h
 // Book class definition.
 #pragma once
 #include <memory>

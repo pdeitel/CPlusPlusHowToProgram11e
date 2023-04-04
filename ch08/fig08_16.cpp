@@ -21,8 +21,8 @@ int main() {
    // match a word that starts with a capital letter
    std::regex r3{"[A-Z][a-z]*"};
    std::cout << "Matching against: [A-Z][a-z]*\n"
-      << std::format("Wally: {}; eva: {}\n\n",
-            std::regex_match("Wally", r3), std::regex_match("eva", r3));
+      << std::format("Angel: {}; tina: {}\n\n",
+            std::regex_match("Angel", r3), std::regex_match("tina", r3));
 
    // match any character that's not a lowercase letter
    std::regex r4{"[^a-z]"};
@@ -39,8 +39,8 @@ int main() {
    // matching a capital letter followed by at least one lowercase letter 
    std::regex r6{"[A-Z][a-z]+"};
    std::cout << "Matching against: [A-Z][a-z]+\n"
-      << std::format("Wally: {}; E: {}\n\n",
-            std::regex_match("Wally", r6), std::regex_match("E", r6));
+      << std::format("Angel: {}; T: {}\n\n",
+            std::regex_match("Angel", r6), std::regex_match("T", r6));
 
    // matching zero or one occurrences of a subexpression
    std::regex r7{"labell?ed"};

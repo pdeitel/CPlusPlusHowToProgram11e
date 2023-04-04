@@ -1,4 +1,4 @@
-// fig20_02.cpp
+// fig20_29.cpp
 // Demonstrating storage-class specifier mutable.
 #include <iostream>
 

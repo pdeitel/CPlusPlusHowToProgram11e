@@ -1,40 +1,14 @@
-// fig20_14.cpp
-// Summing the elements of a braced initializer
-#include <format>
-#include <initializer_list>
-#include <iostream>
-#include <string>
+// fig20_31.cpp
+// [[nodiscard]] attribute.
 
-// sum the elements of an initializer_list
-template <typename T>
-T sum(std::initializer_list<T> list) {
-   T total{}; // value initialize total based on type T
-
-   // sum all the elements in list; requires += operator for type T 
-   for (auto item : list) {
-      total += item;
-   }
-
-   return total;
+[[nodiscard("Do not ignore! Otherwise, you won't know the cube of x.")]]
+int cube(int x) {
+   return x * x * x;
 }
 
-int main() {
-   // display the sum of four ints contained in a braced initializer
-   std::cout << std::format("The sum of {} is: {}\n",
-      "{1, 2, 3, 4}", sum({1, 2, 3, 4}));
-
-   // display the sum of three doubles contained in a braced initializer
-   std::cout << std::format("The sum of {} is: {}\n",
-      "{1.1, 2.2, 3.3}", sum({1.1, 2.2, 3.3}));
-      
-   // display the sum of two strings contained in a braced initializer
-   std::string s1{"Happy "};
-   std::string s2{"birthday!"};
-   std::cout << std::format("The sum of {} is: {}\n",
-      "{\"Happy \", \"birthday!\"}", sum({s1, s2}));
+int main() { 
+   cube(10); // generates a compiler warning
 }
-
-
 
 /**************************************************************************
  * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *

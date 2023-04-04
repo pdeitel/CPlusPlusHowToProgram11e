@@ -1,4 +1,4 @@
-// fig20_13.cpp
+// fig20_06.cpp
 // Demonstrate use of weak_ptr.
 #include <format>
 #include <iostream>

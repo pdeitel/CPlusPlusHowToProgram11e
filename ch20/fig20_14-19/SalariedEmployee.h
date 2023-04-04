@@ -1,28 +1,25 @@
-// fig10_09.cpp
-// Attempting to call derived-class-only functions
-// via a base-class pointer.
-#include <string>
-#include "SalariedEmployee.h"
-#include "SalariedCommissionEmployee.h"
+// Fig. 20.16: SalariedEmployee.h
+// SalariedEmployee class derived from Employee.
+#pragma once
+#include <string> // C++ standard string class
+#include <string_view> 
+#include "Employee.h" // Employee class definition
 
-int main() {
-   SalariedCommissionEmployee salariedCommission{
-      "Ivano Lal", 300.0, 5000.0, .04};
-   
-   // aim base-class pointer at derived-class object (allowed)
-   SalariedEmployee* salariedPtr{&salariedCommission};
+class SalariedEmployee final : public Employee {
+public:
+   SalariedEmployee(std::string_view name, double salary);
+   virtual ~SalariedEmployee() = default; // virtual destructor
 
-   // invoke base-class member functions on derived-class
-   // object through base-class pointer (allowed)
-   std::string name{salariedPtr->getName()};
-   double salary{salariedPtr->getSalary()};        
-   
-   // attempt to invoke derived-class-only member functions          
-   // on derived-class object through base-class pointer (disallowed)
-   double grossSales{salariedPtr->getGrossSales()};  
-   double commissionRate{salariedPtr->getCommissionRate()}; 
-   salariedPtr->setGrossSales(8000.0);                      
-} 
+   void setSalary(double salary);
+   double getSalary() const;
+private:
+   double m_salary{0.0};
+
+   // keyword override signals intent to override               
+   double getPay() const override; // calculate earnings        
+   std::string getString() const override; // string representation
+};
+
 
 
 /**************************************************************************

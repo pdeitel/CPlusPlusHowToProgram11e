@@ -1,28 +1,25 @@
-// fig10_09.cpp
-// Attempting to call derived-class-only functions
-// via a base-class pointer.
-#include <string>
-#include "SalariedEmployee.h"
-#include "SalariedCommissionEmployee.h"
+// Fig. 20.8: Salaried.cpp
+// Salaried compensation model member-function definitions.
+#include <format>
+#include <stdexcept>
+#include "Salaried.h" // class definition
 
-int main() {
-   SalariedCommissionEmployee salariedCommission{
-      "Ivano Lal", 300.0, 5000.0, .04};
-   
-   // aim base-class pointer at derived-class object (allowed)
-   SalariedEmployee* salariedPtr{&salariedCommission};
-
-   // invoke base-class member functions on derived-class
-   // object through base-class pointer (allowed)
-   std::string name{salariedPtr->getName()};
-   double salary{salariedPtr->getSalary()};        
-   
-   // attempt to invoke derived-class-only member functions          
-   // on derived-class object through base-class pointer (disallowed)
-   double grossSales{salariedPtr->getGrossSales()};  
-   double commissionRate{salariedPtr->getCommissionRate()}; 
-   salariedPtr->setGrossSales(8000.0);                      
+// constructor 
+Salaried::Salaried(double salary) : m_salary{salary} {
+   if (m_salary < 0.0) {
+      throw std::invalid_argument("Weekly salary must be >= 0.0");
+   } 
 } 
+
+// calculate earnings
+double Salaried::earnings() const {return m_salary;}
+
+// return string containing Salaried compensation model information
+std::string Salaried::toString() const {
+   return std::format("salary: ${:.2f}", m_salary);
+} 
+
+
 
 
 /**************************************************************************

@@ -1,27 +1,19 @@
-// fig10_09.cpp
-// Attempting to call derived-class-only functions
-// via a base-class pointer.
-#include <string>
-#include "SalariedEmployee.h"
-#include "SalariedCommissionEmployee.h"
+// Fig. 20.24: Derived.cpp
+// Member-function definitions for class Derived
+#include <format> 
+#include "Derived.h"
 
-int main() {
-   SalariedCommissionEmployee salariedCommission{
-      "Ivano Lal", 300.0, 5000.0, .04};
-   
-   // aim base-class pointer at derived-class object (allowed)
-   SalariedEmployee* salariedPtr{&salariedCommission};
+// constructor for Derived calls Base1 and Base2 constructors
+Derived::Derived(int value, char letter, double real)
+   : Base1{value}, Base2{letter}, m_real{real} {} 
 
-   // invoke base-class member functions on derived-class
-   // object through base-class pointer (allowed)
-   std::string name{salariedPtr->getName()};
-   double salary{salariedPtr->getSalary()};        
-   
-   // attempt to invoke derived-class-only member functions          
-   // on derived-class object through base-class pointer (disallowed)
-   double grossSales{salariedPtr->getGrossSales()};  
-   double commissionRate{salariedPtr->getCommissionRate()}; 
-   salariedPtr->setGrossSales(8000.0);                      
+// return real
+double Derived::getReal() const {return m_real;}
+
+// display all data members of Derived
+std::string Derived::toString() const { 
+   return std::format("int: {}; char: {}; double: {}", 
+      Base1::getData(), Base2::getData(), getReal()); 
 } 
 
 

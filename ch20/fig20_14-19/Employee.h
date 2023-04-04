@@ -1,29 +1,25 @@
-// fig10_09.cpp
-// Attempting to call derived-class-only functions
-// via a base-class pointer.
-#include <string>
-#include "SalariedEmployee.h"
-#include "SalariedCommissionEmployee.h"
+// Fig. 20.14: Employee.h
+// Employee abstract base class.
+#pragma once // prevent multiple inclusions of header
+#include <string> 
+#include <string_view> 
 
-int main() {
-   SalariedCommissionEmployee salariedCommission{
-      "Ivano Lal", 300.0, 5000.0, .04};
-   
-   // aim base-class pointer at derived-class object (allowed)
-   SalariedEmployee* salariedPtr{&salariedCommission};
+class Employee {
+public:
+   Employee(std::string_view name);
+   virtual ~Employee() = default;
 
-   // invoke base-class member functions on derived-class
-   // object through base-class pointer (allowed)
-   std::string name{salariedPtr->getName()};
-   double salary{salariedPtr->getSalary()};        
-   
-   // attempt to invoke derived-class-only member functions          
-   // on derived-class object through base-class pointer (disallowed)
-   double grossSales{salariedPtr->getGrossSales()};  
-   double commissionRate{salariedPtr->getCommissionRate()}; 
-   salariedPtr->setGrossSales(8000.0);                      
-} 
+   void setName(std::string_view name);
+   std::string getName() const;
 
+   double earnings() const; // not virtual 
+   std::string toString() const; // not virtual 
+protected:
+   virtual std::string getString() const; // virtual
+private:
+   std::string m_name;
+   virtual double getPay() const = 0; // pure virtual
+};
 
 /**************************************************************************
  * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *

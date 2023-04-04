@@ -95,15 +95,15 @@ int main() {
       100.0 * survivorCount / survived.size());
 
    // count who survived by male/female, 1st/2nd/3rd class
-   int survivingMen{0};
-   int survivingWomen{0};
+   int survivingMales{0};
+   int survivingFemales{0};
    int surviving1st{0};
    int surviving2nd{0};
    int surviving3rd{0};
 
    for (size_t i{0}; i < survived.size(); ++i) {
       if (survived.at(i)) {
-         sex.at(i) == "female" ? ++survivingWomen : ++survivingMen;
+         sex.at(i) == "female" ? ++survivingFemales : ++survivingMales;
 
          if (firstClass == pclass.at(i)) {
             ++surviving1st;
@@ -119,9 +119,9 @@ int main() {
 
    // percentages who survived by male/female, 1st/2nd/3rd class
    std::cout << std::format("Female survivor percentage: {:.2f}%\n",
-      100.0 * survivingWomen / survivorCount)
+      100.0 * survivingFemales / survivorCount)
       << std::format("Male survivor percentage: {:.2f}%\n\n",
-         100.0 * survivingMen / survivorCount)
+         100.0 * survivingMales / survivorCount)
       << std::format("1st class survivor percentage: {:.2f}%\n",
          100.0 * surviving1st / survivorCount)
       << std::format("2nd class survivor percentage: {:.2f}%\n",

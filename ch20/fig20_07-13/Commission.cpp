@@ -1,32 +1,33 @@
-// fig10_26.cpp
-// Processing Employees with various CompensationModels.
+// Fig. 20.10: Commission.cpp
+// Commission member-function definitions.
 #include <format>
-#include <iostream>
-#include <vector>
-#include "Employee.h"
-#include "Salaried.h" 
-#include "Commission.h"  
+#include <stdexcept>
+#include "Commission.h" // class definition
 
-int main() {
-   // create CompensationModels and Employees
-   Salaried salaried{800.0};
-   Employee salariedEmployee{"Pierre Simon", &salaried};
+// constructor                                                        
+Commission::Commission(double grossSales, double commissionRate)         
+   : m_grossSales{grossSales}, m_commissionRate{commissionRate} {
 
-   Commission commission{10000, .06};
-   Employee commissionEmployee{"Sierra Dembo", &commission};
+   if (m_grossSales < 0.0) {
+      throw std::invalid_argument("Gross sales must be >= 0.0");
+   } 
 
-   // create and initialize vector of Employees
-   std::vector employees{salariedEmployee, commissionEmployee};
+   if (m_commissionRate <= 0.0 || m_commissionRate >= 1.0) {
+      throw std::invalid_argument(
+         "Commission rate must be > 0.0 and < 1.0");
+   } 
+}                                      
 
-   // print each Employee's information and earnings 
-   for (const Employee& employee : employees) {
-      std::cout << std::format("{}\nearned: ${:.2f}\n\n",
-         employee.toString(), employee.earnings());
-   }
-}
+// calculate earnings
+double Commission::earnings() const {
+   return m_grossSales * m_commissionRate;       
+}                                            
 
-
-
+// return string containing Commission information
+std::string Commission::toString() const {                       
+   return std::format("gross sales: ${:.2f}; commission rate: {:.2f}", 
+      m_grossSales, m_commissionRate);
+}   
 
 
 /**************************************************************************

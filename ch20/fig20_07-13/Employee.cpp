@@ -1,28 +1,29 @@
-// fig10_09.cpp
-// Attempting to call derived-class-only functions
-// via a base-class pointer.
-#include <string>
-#include "SalariedEmployee.h"
-#include "SalariedCommissionEmployee.h"
+// Fig. 20.12: Employee.cpp
+// Class Employee member-function definitions.
+#include <format> 
+#include <string> 
+#include "Employee.h" 
 
-int main() {
-   SalariedCommissionEmployee salariedCommission{
-      "Ivano Lal", 300.0, 5000.0, .04};
-   
-   // aim base-class pointer at derived-class object (allowed)
-   SalariedEmployee* salariedPtr{&salariedCommission};
+// constructor 
+Employee::Employee(std::string_view name, CompensationModel model)
+   : m_name{name}, m_model{model} {}
 
-   // invoke base-class member functions on derived-class
-   // object through base-class pointer (allowed)
-   std::string name{salariedPtr->getName()};
-   double salary{salariedPtr->getSalary()};        
-   
-   // attempt to invoke derived-class-only member functions          
-   // on derived-class object through base-class pointer (disallowed)
-   double grossSales{salariedPtr->getGrossSales()};  
-   double commissionRate{salariedPtr->getCommissionRate()}; 
-   salariedPtr->setGrossSales(8000.0);                      
-} 
+// change the Employee's CompensationModel
+void Employee::setCompensationModel(CompensationModel model) {
+   m_model = model;
+}
+
+// return the Employee's earnings
+double Employee::earnings() const {
+   auto getEarnings{[](const auto& model) {return model.earnings(); }};
+   return std::visit(getEarnings, m_model);
+}
+
+// return string representation of an Employee object        
+std::string Employee::toString() const {
+   auto getString{[](const auto& model) {return model.toString(); }};
+   return std::format("{}\n{}", m_name, std::visit(getString, m_model));
+}
 
 
 /**************************************************************************

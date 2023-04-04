@@ -1,4 +1,4 @@
-// fig20_03.cpp
+// fig20_28.cpp
 // Demonstrating namespaces.
 #include <format>
 #include <iostream>
@@ -16,8 +16,8 @@ namespace Example {
 
    // nested namespace                                
    namespace Inner {
-      // define enumeration                           
-      enum Years { fiscal1 = 2020, fiscal2, fiscal3 };
+      // define variable in nested namespace                           
+      int year{2023};
    }
 }
 
@@ -35,8 +35,8 @@ int main() {
 
    // output values of Example namespace
    std::cout << std::format(
-      "pi = {}\ne = {}\ninteger1 = {}\nfiscal3 = {}\n", Example::pi,
-      Example::e, Example::integer1, Example::Inner::fiscal3);
+      "pi = {}\ne = {}\ninteger1 = {}\nyear = {}\n", Example::pi,
+      Example::e, Example::integer1, Example::Inner::year);
 
    Example::printValues(); // invoke printValues function
 }
@@ -47,8 +47,8 @@ void Example::printValues() {
    std::cout << std::format(
       "integer1 = {}\npi = {}\ne = {}\n", integer1, pi, e);
    std::cout << std::format(
-      "doubleInUnnamed = {}\n(global) integer1 = {}\nfiscal3 = {}\n",
-      doubleInUnnamed, ::integer1, Inner::fiscal3);
+      "doubleInUnnamed = {}\n(global) integer1 = {}\nyear = {}\n",
+      doubleInUnnamed, ::integer1, Inner::year);
 }
 
 /**************************************************************************

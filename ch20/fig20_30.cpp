@@ -1,26 +1,23 @@
-// Fig. 20.9: Author.h
-// Author class definition.
-#pragma once
-#include <memory>
-#include <string>
-#include <string_view>
+// fig20_30.cpp
+// Demonstrating operator keywords.
+#include <format>
+#include <iostream>
 
-class Book; // forward declaration of class Book
+int main() {
+   bool a{true};
+   bool b{false};
 
-// Author class definition
-class Author {
-public:
-   explicit Author(std::string_view authorName);
-   ~Author();
+   std::cout << std::format("a = {}; b = {}\n\n", a, b);
 
-   // print the title of the Book this Author wrote
-   void printBookTitle();
-
-   std::string name; // name of the Author
-   std::weak_ptr<Book> weakBookPtr; // Book the Author wrote    
-   std::shared_ptr<Book> sharedBookPtr; // Book the Author wrote
-};
-
+   std::cout << "Logical operator keywords:\n"
+      << std::format("   a and a: {}\n", a and a)
+      << std::format("   a and b: {}\n", a and b)
+      << std::format("    a or a: {}\n", a or a)
+      << std::format("    a or b: {}\n", a or b)
+      << std::format("     not a: {}\n", not a)
+      << std::format("     not b: {}\n", not b)
+      << std::format("a not_eq b: {}\n", a not_eq b);
+}
 
 /**************************************************************************
  * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *

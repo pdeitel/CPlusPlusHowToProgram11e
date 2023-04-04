@@ -7,11 +7,11 @@
 
 int main() {
    // create base-class object
-   SalariedEmployee salaried{"Sue Jones", 500.0};
+   SalariedEmployee salaried{"Sierra Dembo", 500.0};
 
    // create derived-class object
    SalariedCommissionEmployee salariedCommission{
-      "Bob Lewis", 300.0, 5000.0, .04};
+      "Ivano Lal", 300.0, 5000.0, .04};
 
    // output objects using static binding
    std::cout << std::format("{}\n{}:\n{}\n{}\n",

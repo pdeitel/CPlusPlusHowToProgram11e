@@ -1,4 +1,4 @@
-// fig20_06.cpp
+// fig20_01.cpp
 // Demonstrating downcasting and runtime type information (RTTI). 
 #include <format> 
 #include <iostream>
@@ -10,8 +10,8 @@
 
 int main() {
    // create derived-class objects                        
-   SalariedEmployee salaried{"John Smith", 800.0}; 
-   CommissionEmployee commission{"Sue Jones", 10000.0, .06};
+   SalariedEmployee salaried{"Pierre Simon", 800.0}; 
+   CommissionEmployee commission{"Sierra Dembo", 10000.0, .06};
 
    // create and initialize vector of base-class pointers        
    std::vector<Employee*> employees{&salaried, &commission};
@@ -40,6 +40,7 @@ int main() {
       std::cout << std::format("{}\n", typeid(*employeePtr).name());
    } 
 } 
+
 
 
 

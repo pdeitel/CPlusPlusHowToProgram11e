@@ -1,28 +1,38 @@
-// fig10_09.cpp
-// Attempting to call derived-class-only functions
-// via a base-class pointer.
-#include <string>
-#include "SalariedEmployee.h"
-#include "SalariedCommissionEmployee.h"
+// Fig. 20.17: SalariedEmployee.cpp
+// SalariedEmployee class member-function definitions.
+#include <format>
+#include <stdexcept>
+#include "SalariedEmployee.h" // SalariedEmployee class definition
 
-int main() {
-   SalariedCommissionEmployee salariedCommission{
-      "Ivano Lal", 300.0, 5000.0, .04};
-   
-   // aim base-class pointer at derived-class object (allowed)
-   SalariedEmployee* salariedPtr{&salariedCommission};
-
-   // invoke base-class member functions on derived-class
-   // object through base-class pointer (allowed)
-   std::string name{salariedPtr->getName()};
-   double salary{salariedPtr->getSalary()};        
-   
-   // attempt to invoke derived-class-only member functions          
-   // on derived-class object through base-class pointer (disallowed)
-   double grossSales{salariedPtr->getGrossSales()};  
-   double commissionRate{salariedPtr->getCommissionRate()}; 
-   salariedPtr->setGrossSales(8000.0);                      
+// constructor 
+SalariedEmployee::SalariedEmployee(std::string_view name, double salary)
+   : Employee{name} {
+   setSalary(salary); 
 } 
+
+// set salary
+void SalariedEmployee::setSalary(double salary) {
+   if (salary < 0.0) {
+      throw std::invalid_argument("Weekly salary must be >= 0.0");
+   } 
+
+   m_salary = salary;
+} 
+
+// return salary
+double SalariedEmployee::getSalary() const {return m_salary;}
+
+// calculate earnings; 
+// override pure virtual function getPay in Employee
+double SalariedEmployee::getPay() const {return getSalary();}
+
+// return a string representation of SalariedEmployee
+std::string SalariedEmployee::getString() const {
+   return std::format("{}\n{}: ${:.2f}", Employee::getString(), 
+      "salary", getSalary());
+}
+
+
 
 
 /**************************************************************************

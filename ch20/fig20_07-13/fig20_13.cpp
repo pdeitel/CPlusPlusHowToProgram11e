@@ -1,28 +1,28 @@
-// fig10_09.cpp
-// Attempting to call derived-class-only functions
-// via a base-class pointer.
-#include <string>
-#include "SalariedEmployee.h"
-#include "SalariedCommissionEmployee.h"
+// fig20_13.cpp
+// Processing Employees with various compensation models.
+#include <format>
+#include <iostream>
+#include <vector>
+#include "Employee.h"
+#include "Salaried.h" 
+#include "Commission.h"  
 
 int main() {
-   SalariedCommissionEmployee salariedCommission{
-      "Ivano Lal", 300.0, 5000.0, .04};
-   
-   // aim base-class pointer at derived-class object (allowed)
-   SalariedEmployee* salariedPtr{&salariedCommission};
+   Employee salariedEmployee{"Pierre Simon", Salaried{800.0}};
+   Employee commissionEmployee{"Sierra Dembo", Commission{10000.0, .06}};
 
-   // invoke base-class member functions on derived-class
-   // object through base-class pointer (allowed)
-   std::string name{salariedPtr->getName()};
-   double salary{salariedPtr->getSalary()};        
-   
-   // attempt to invoke derived-class-only member functions          
-   // on derived-class object through base-class pointer (disallowed)
-   double grossSales{salariedPtr->getGrossSales()};  
-   double commissionRate{salariedPtr->getCommissionRate()}; 
-   salariedPtr->setGrossSales(8000.0);                      
+   // create and initialize vector of three Employees
+   std::vector employees{salariedEmployee, commissionEmployee};
+
+   // print each Employee's information and earnings 
+   for (const Employee& employee : employees) {
+      std::cout << std::format("{}\nearned: ${:.2f}\n\n", 
+         employee.toString(), employee.earnings());
+    }                                                                                                    
 } 
+
+
+
 
 
 /**************************************************************************

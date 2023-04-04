@@ -1,5 +1,5 @@
-// Fig. 20.11: Author.cpp
-// Author member-function definitions.
+// Fig. 20.5: Book.cpp
+// Book member-function definitions.
 #include <format>
 #include <iostream>
 #include <memory>
@@ -8,28 +8,26 @@
 #include "Author.h"
 #include "Book.h"
 
-Author::Author(std::string_view authorName) : name(authorName) {}
+Book::Book(std::string_view bookTitle) : title(bookTitle) {}
 
-Author::~Author() {
-   std::cout << std::format("Destroying Author: {}\n", name);
+Book::~Book() {
+   std::cout << std::format("Destroying Book: {}\n", title);
 }
 
-// print the title of the Book this Author wrote
-void Author::printBookTitle() {
-   // if weakBookPtr.lock() returns a non-empty shared_ptr
-   if (std::shared_ptr<Book> bookPtr{weakBookPtr.lock()}) {
-      // show the reference count increase and print the Book's title
-      std::cout << std::format("Reference count for Book {} is {}\n",
-         bookPtr->title, bookPtr.use_count());
-      std::cout << std::format("Author {} wrote the book {}\n", 
-         name, bookPtr->title);
+// print the name of this Book's Author
+void Book::printAuthorName() {
+   // if weakAuthorPtr.lock() returns a non-empty shared_ptr
+   if (std::shared_ptr<Author> authorPtr{weakAuthorPtr.lock()}) {
+      // show the reference count increase and print the Author's name
+      std::cout << std::format("Reference count for Author {} is {}\n",
+         authorPtr->name, authorPtr.use_count());
+      std::cout << std::format("The book {} was written by {}\n",
+         title, authorPtr->name);
    }
-   else { // weakBookPtr points to NULL
-      std::cout << "This Author has no Books.\n";
+   else { // weakAuthorPtr points to NULL
+      std::cout << "This Book has no Author.\n";
    }
 }
-
-
 
 
 /**************************************************************************

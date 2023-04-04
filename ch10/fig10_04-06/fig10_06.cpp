@@ -6,7 +6,7 @@
 
 int main() {
    // instantiate SalariedCommissionEmployee object             
-   SalariedCommissionEmployee employee{"Bob Lewis", 300.0, 5000.0, .04};
+   SalariedCommissionEmployee employee{"Ivano Lal", 300.0, 5000.0, .04};
 
    // get SalariedCommissionEmployee data
    std::cout << "Employee information obtained by get functions:\n"

@@ -7,8 +7,8 @@
 
 int main() {
    // create two Account objects
-   Account account1{"Jane Green"};
-   Account account2{"John Blue"};
+   Account account1{"Mia Gonzalez"};
+   Account account2{"Asahi Susuki"};
 
    // display each Account's corresponding name
    std::cout << std::format(

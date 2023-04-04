@@ -6,7 +6,7 @@
 #include <string>
 
 int main() {
-   const std::string inputString{"Amanda test 123 4.7 A"};
+   const std::string inputString{"Atonia test 123 4.7 A"};
    std::istringstream input{inputString};
    std::string s1;
    std::string s2;

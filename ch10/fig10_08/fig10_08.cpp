@@ -4,7 +4,7 @@
 #include "SalariedCommissionEmployee.h"
 
 int main() {
-   SalariedEmployee salaried{"Sue Jones", 500.0};
+   SalariedEmployee salaried{"Sierra Dembo", 500.0};
 
    // aim derived-class pointer at base-class object                 
    // Error: a SalariedEmployee is not a SalariedCommissionEmployee

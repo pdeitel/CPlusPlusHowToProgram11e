@@ -1,28 +1,25 @@
-// fig10_09.cpp
-// Attempting to call derived-class-only functions
-// via a base-class pointer.
-#include <string>
-#include "SalariedEmployee.h"
-#include "SalariedCommissionEmployee.h"
+// Fig. 20.11: Employee.h
+// An Employee "has a" CompensationModel.
+#pragma once // prevent multiple inclusions of header
+#include <string> 
+#include <string_view> 
+#include <variant>
+#include "Commission.h"
+#include "Salaried.h"
 
-int main() {
-   SalariedCommissionEmployee salariedCommission{
-      "Ivano Lal", 300.0, 5000.0, .04};
-   
-   // aim base-class pointer at derived-class object (allowed)
-   SalariedEmployee* salariedPtr{&salariedCommission};
+// define a convenient name for the std::variant type
+using CompensationModel = std::variant<Commission, Salaried>;
 
-   // invoke base-class member functions on derived-class
-   // object through base-class pointer (allowed)
-   std::string name{salariedPtr->getName()};
-   double salary{salariedPtr->getSalary()};        
-   
-   // attempt to invoke derived-class-only member functions          
-   // on derived-class object through base-class pointer (disallowed)
-   double grossSales{salariedPtr->getGrossSales()};  
-   double commissionRate{salariedPtr->getCommissionRate()}; 
-   salariedPtr->setGrossSales(8000.0);                      
-} 
+class Employee {
+public:
+   Employee(std::string_view name, CompensationModel model);
+   void setCompensationModel(CompensationModel model);
+   double earnings() const;
+   std::string toString() const;
+private:
+   std::string m_name{};
+   CompensationModel m_model; // note this is not a pointer
+};
 
 
 /**************************************************************************

@@ -1,29 +1,29 @@
-// fig05_18.cpp
+// fig09_36.cpp
 // Encrypting and decrypting text with a Vigenère cipher. 
 #include "cipher.h"
 #include <iostream>
 #include <string>
-using namespace std;
 
 int main() {
-   string plainText;
-   cout << "Enter the text to encrypt:\n";
-   getline(cin, plainText);
+   std::string plainText;
+   std::cout << "Enter the text to encrypt:\n";
+   std::getline(std::cin, plainText);
 
-   string secretKey;
-   cout << "\nEnter the secret key:\n";
-   getline(cin, secretKey);
+   std::string secretKey;
+   std::cout << "\nEnter the secret key:\n";
+   std::getline(std::cin, secretKey);
 
-   Cipher cipher; 
+   Cipher cipher;
 
    // encrypt plainText using secretKey
-   string cipherText{cipher.encrypt(plainText, secretKey)};
-   cout << "\nEncrypted:\n   " << cipherText << '\n';
+   std::string cipherText{cipher.encrypt(plainText, secretKey)};
+   std::cout << "\nEncrypted:\n   " << cipherText << '\n';
 
    // decrypt cipherText
-   cout << "\nDecrypted:\n   "  
+   std::cout << "\nDecrypted:\n   " 
       << cipher.decrypt(cipherText, secretKey) << '\n';
 }
+
 
 /**************************************************************************
  * (C) Copyright 1992-2022 by Deitel & Associates, Inc. and               *

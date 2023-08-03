@@ -10,7 +10,7 @@ int main() {
    cout << "    postincrementing c: " << c++ << "\n"; // prints 5
    cout << " c after postincrement: " << c << "\n"; // prints 6                     
 
-   cout << endl; // skip a line
+   cout << "\n"; // skip a line
 
    // demonstrate prefix increment operator
    c = 5;  

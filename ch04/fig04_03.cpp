@@ -1,6 +1,6 @@
 // fig04_03.cpp
 // Summing integers with the for statement; introducing text formatting.
-#include <format> 
+#include <fmt/format.h>
 #include <iostream>
 using namespace std;
 
@@ -12,7 +12,7 @@ int main() {
       total += number;                             
    }
 
-   cout << format("Sum is {}\n", total);
+   cout << fmt::format("Sum is {}\n", total);
 } 
 
 

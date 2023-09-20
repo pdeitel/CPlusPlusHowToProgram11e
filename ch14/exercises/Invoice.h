@@ -66,7 +66,7 @@ public:
 
    std::string toString() const {
       return std::format(
-         "{}: {:<2}  {}: {:<15}  {}: {:<4}%  {}: {:>6.2f}",
+         "{}: {:<2};  {}: {:<15};  {}: {:<4};  {}: {:>6.2f}",
          "Part #", getPartNumber(), "Description", getPartDescription(),
          "Quantity", getQuantity(), "Price", getPrice());
    } 

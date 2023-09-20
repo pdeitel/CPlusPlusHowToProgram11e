@@ -25,12 +25,12 @@ public:
    }
 
    // get part number
-   int getPartNumber() {
+   int getPartNumber() const {
       return partNumber; 
    } 
 
    // get description
-   std::string getPartDescription() {
+   std::string getPartDescription() const {
       return partDescription;
    } 
 
@@ -44,7 +44,7 @@ public:
    } 
 
    // get quantity
-   int getQuantity() {
+   int getQuantity() const {
       return quantity;
    }
 
@@ -58,13 +58,13 @@ public:
    } 
 
    // get price per item
-   double getPrice() {
+   double getPrice() const {
       return price;
    } 
 
    // return String representation of Invoice object
 
-   std::string toString() {
+   std::string toString() const {
       return std::format(
          "{}: {:<2}  {}: {:<15}  {}: {:<4}%  {}: {:>6.2f}",
          "Part #", getPartNumber(), "Description", getPartDescription(),
